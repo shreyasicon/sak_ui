@@ -1,0 +1,241 @@
+{
+  "meta": {
+    "title": "SAK — Solana Agent Kernel",
+    "description": "The autonomous security layer for AI agents, wallets, and decentralized infrastructure."
+  },
+  "navbar": {
+    "brand": {
+      "name": "SAK",
+      "tagline": "SOLANA AGENT KERNEL"
+    },
+    "links": [
+      { "label": "Platform" },
+      { "label": "Security Engine" },
+      { "label": "Developers" },
+      { "label": "Resources" },
+      { "label": "Company" }
+    ],
+    "actions": {
+      "login": "Log in",
+      "launch": "Launch Platform"
+    }
+  },
+  "hero": {
+    "badge": "AUTONOMOUS SECURITY LAYER:TORIHEB3",
+    "headingLine1": "Secure Autonomous",
+    "headingLine2": "AI Systems ",
+    "headingLine3Highlight": "Before",
+    "headingLine4Highlight": "They Execute.",
+    "subtext": "Real-time threat detection, simulation, and autonomous protection for AI agents, wallets, and decentralized infrastructure.",
+    "cta": [
+      { "label": "Launch Platform", "type": "primary", "icon": "arrow-right" },
+      { "label": "View Documentation", "type": "secondary", "icon": "file-text" }
+    ],
+    "stats": [
+      { "value": "26/29", "label": "Malicious Patterns Blocked", "icon": "shield" },
+      { "value": "50ms", "label": "Average Response Time", "icon": "zap" },
+      { "value": "98%", "label": "Threats Blocked Before Execution", "icon": "target" }
+    ],
+    "terminal": {
+      "title": "SAK_1 Guardian — Live Safety Log",
+      "logs": [
+        { "type": "warn",  "text": "[SIGUSDCC] amd_110000 000M0s_7 2000ps" },
+        { "type": "info",  "text": "0010 1Tr0ff0r 0.00p 00" },
+        { "type": "allow", "text": "[ALLOWED] Attached Programs 100% of Program 10" },
+        { "type": "allow", "text": "[ALLOWED] amd.service.Green 0.0s 1 SAL i SQL" },
+        { "type": "allow", "text": "[ALLOWED] Jupiter Swap 100 USDC → SOL 0.0%" }
+      ],
+      "footer": "Blocked: 47     Allowed: 18     Cost: $0.00"
+    }
+  },
+  "trustedBy": {
+    "label": "TRUSTED BY BUILDERS & ENTERPRISES",
+    "logos": [
+      "SOLANA",
+      "Chainlink",
+      "polygon",
+      "APTOS",
+      "AVALANCHE",
+      "SOJAN NETWORKS",
+      "EY",
+      "McKinsey & Company"
+    ]
+  },
+  "security": {
+    "heading": "Web3 Security",
+    "headingLine2": "Is ",
+    "headingHighlight": "Reactive.",
+    "subtext": "Exploits happen in milliseconds. Traditional security can't keep up with on-chain speed.",
+    "comparison": {
+      "old": {
+        "label": "OLD SECURITY",
+        "items": [
+          "Detect after exploit",
+          "Human transaction",
+          "Signature-based rules",
+          "High false positives",
+          "Reactive protection"
+        ]
+      },
+      "sak": {
+        "label": "SAK SECURITY",
+        "items": [
+          "Prevent before execution",
+          "Autonomous coexition",
+          "Intent-based simulation",
+          "Zero false negatives",
+          "Proactive protection"
+        ]
+      }
+    },
+    "stats": [
+      { "value": "$2.7B+", "label": "Lost in Web3 Exploits" },
+      { "value": "160+",   "label": "Major incidents in 2024" },
+      { "value": "0.05s",  "label": "To stop a malicious intent" }
+    ]
+  },
+  "pillars": {
+    "sectionLabel": "THREE PILLARS OF SAFETY",
+    "items": [
+      {
+        "icon": "shield",
+        "name": "GUARDIAN",
+        "tagline": "Pre-sign Simulation Engine",
+        "description": "Simulate every execution with 100% mathematical certainty before signing."
+      },
+      {
+        "icon": "zap",
+        "name": "REFLEX ENGINE",
+        "tagline": "Same-Time Threat Awareness",
+        "description": "React within 5ms of on-chain events with autonomous threat response and real-time simulation."
+      },
+      {
+        "icon": "package",
+        "name": "ZK STATE",
+        "tagline": "Compressed Secure State",
+        "description": "1,000x integer store coverage rate. Light Protocol: $3,500 → $100 rent."
+      }
+    ],
+    "dashboard": {
+      "title": "Security Overview",
+      "stats": [
+        { "label": "Threats Flagged",   "value": "29/20", "sub": "300 hits" },
+        { "label": "Perimeter Data",    "value": "50ms",  "sub": "Run ops" },
+        { "label": "Execution Security","value": "100%",  "sub": "Satisfactory" }
+      ],
+      "recentSessions": [
+        { "name": "Cosmos Benghales",  "detail": "23 ago" },
+        { "name": "Manu Occupation",   "detail": "39 ago" },
+        { "name": "Kearins Condoh",    "detail": "49 ago" },
+        { "name": "Sandus/Altum",      "detail": "Startup · 59 ago" }
+      ]
+    }
+  },
+  "roadmap": {
+    "sectionLabel": "ROADMAP",
+    "milestones": [
+      { "quarter": "Q3 2025", "title": "Beta Mainnet",        "subtitle": "Design Partners",      "active": true  },
+      { "quarter": "Q3 2026", "title": "Public $54",           "subtitle": "& Agent API",           "active": false },
+      { "quarter": "Q3 2026", "title": "Enterprise Tier",      "subtitle": "& OPC Deployment",      "active": false },
+      { "quarter": "Q3 2027", "title": "Autonomous Security",  "subtitle": "Layer For AI",          "active": false }
+    ]
+  },
+  "team": {
+    "sectionLabel": "BUILT BY EXPERTS",
+    "members": [
+      {
+        "initials": "PG",
+        "name": "Pratheek G",
+        "role": "Co-Founder & CTO",
+        "bio": "Sr. Naya Rutharks, Glenhaven Epstrom, Soresum",
+        "social": { "linkedin": "#", "twitter": "#" }
+      },
+      {
+        "initials": "SS",
+        "name": "Sarthik S",
+        "role": "Co-Founder & CSO",
+        "bio": "SLPO, Co-Founding AI & Infrastructure",
+        "social": { "linkedin": "#", "twitter": "#" }
+      },
+      {
+        "initials": "SB",
+        "name": "Seeher B",
+        "role": "Lead Engineer",
+        "bio": "Systems Grousing & Blockchain Security",
+        "social": { "linkedin": "#", "twitter": "#" }
+      },
+      {
+        "initials": "AD",
+        "name": "Advisor",
+        "role": "Industry Leaders",
+        "bio": "Mcfirms, HX, hype forecorals & More",
+        "social": { "twitter": "#", "discord": "#" }
+      }
+    ]
+  },
+  "cta": {
+    "headingLine1": "Build AI Systems",
+    "headingLine2Start": "That Can't ",
+    "headingLine2Highlight": "Be Used Against You.",
+    "buttons": [
+      { "label": "Join the Waitlist", "type": "primary",   "icon": "arrow-right" },
+      { "label": "Book a Demo",       "type": "secondary", "icon": "calendar" }
+    ]
+  },
+  "footer": {
+    "brand": {
+      "name": "SAK",
+      "tagline": "SOLANA AGENT KERNEL",
+      "description": "The autonomous security layer for AI agents, wallets, and on-chain infrastructure.",
+      "social": [
+        { "platform": "twitter",  "href": "#" },
+        { "platform": "discord",  "href": "#" },
+        { "platform": "github",   "href": "#" },
+        { "platform": "linkedin", "href": "#" }
+      ]
+    },
+    "columns": [
+      {
+        "title": "PRODUCT",
+        "links": [
+          { "label": "Platform",        "href": "#" },
+          { "label": "Security Engine", "href": "#" },
+          { "label": "APIs",            "href": "#" },
+          { "label": "SAK",             "href": "#" }
+        ]
+      },
+      {
+        "title": "RESOURCES",
+        "links": [
+          { "label": "Documentation", "href": "#" },
+          { "label": "Whitepaper",    "href": "#" },
+          { "label": "Blog",          "href": "#" },
+          { "label": "Security",      "href": "#" }
+        ]
+      },
+      {
+        "title": "COMPANY",
+        "links": [
+          { "label": "About Us",  "href": "#" },
+          { "label": "Careers",   "href": "#" },
+          { "label": "Press Kit", "href": "#" }
+        ]
+      },
+      {
+        "title": "LEGAL",
+        "links": [
+          { "label": "Privacy Policy",    "href": "#" },
+          { "label": "Terms of Service",  "href": "#" },
+          { "label": "Cookie Policy",     "href": "#" }
+        ]
+      }
+    ],
+    "newsletter": {
+      "title": "NEWSLETTER",
+      "description": "Stay updated to threats, releases, and security insights.",
+      "placeholder": "Enter your email",
+      "buttonLabel": "→"
+    },
+    "copyright": "© 2025 SAK. All rights reserved."
+  }
+}
