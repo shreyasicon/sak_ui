@@ -11,9 +11,12 @@ import { TeamSection }     from "./components/landing/TeamSection";
 import { CTASection }      from "./components/landing/CTASection";
 import { Footer }          from "./components/landing/Footer";
 import { DocsPage }        from "./components/docs/DocsPage";
+import content             from "./content.json";
 
 export function App() {
-  const isDocsPage = window.location.pathname === "/docs";
+  const docsRoute = content.routes.docs;
+  const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+  const isDocsPage = currentPath === docsRoute;
 
   if (isDocsPage) {
     return <DocsPage />;
@@ -23,15 +26,15 @@ export function App() {
     <div className="min-h-screen bg-[#080810] text-white overflow-x-hidden">
       <Navbar />
       <main>
-        <HeroSection />
+        <div id="platform"><HeroSection /></div>
         <TrustedBySection />
-        <SecuritySection />
+        <div id="security"><SecuritySection /></div>
         <PillarsSection />
         <HowItWorksSection />
         <DemoPreviewSection />
         <RoadmapSection />
         <TeamSection />
-        <CTASection />
+        <div id="waitlist-form"><CTASection /></div>
       </main>
       <Footer />
     </div>

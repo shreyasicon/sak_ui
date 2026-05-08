@@ -51,7 +51,8 @@ The docs page is available at:
 
 Update `src/content.json` to change:
 
-- Navbar labels
+- Route paths under `routes`
+- Navbar labels/routes
 - Hero copy and stats
 - Terminal logs
 - Trusted logos

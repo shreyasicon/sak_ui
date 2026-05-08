@@ -340,7 +340,8 @@ const fadeUp = (delay = 0) => ({
 });
 
 export function HeroSection() {
-  const { hero } = content;
+  const { hero, routes } = content;
+  const routeHref = (route: keyof typeof routes) => routes[route];
 
   return (
     <section className="relative min-h-screen bg-grid flex flex-col justify-center pt-16 overflow-hidden">
@@ -383,11 +384,11 @@ export function HeroSection() {
 
           {/* CTA buttons */}
           <motion.div {...fadeUp(0.52)} className="flex flex-wrap gap-3 pt-1">
-            <button className="flex items-center gap-2 px-5 py-2.5 bg-green-500 hover:bg-green-400 text-black font-display font-bold text-sm rounded transition-all duration-200 glow-green">
+            <a href={routeHref(hero.cta[0].route as keyof typeof routes)} className="flex items-center gap-2 px-5 py-2.5 bg-green-500 hover:bg-green-400 text-black font-display font-bold text-sm rounded transition-all duration-200 glow-green">
               {hero.cta[0].label}
               <ArrowRight className="w-4 h-4" />
-            </button>
-            <a href="/docs" className="flex items-center gap-2 px-5 py-2.5 border border-white/20 hover:border-white/40 text-white font-display text-sm rounded transition-all duration-200 hover:bg-white/5">
+            </a>
+            <a href={routeHref(hero.cta[1].route as keyof typeof routes)} className="flex items-center gap-2 px-5 py-2.5 border border-white/20 hover:border-white/40 text-white font-display text-sm rounded transition-all duration-200 hover:bg-white/5">
               <FileText className="w-4 h-4" />
               {hero.cta[1].label}
             </a>

@@ -3,21 +3,34 @@
     "title": "SAK — Solana Agent Kernel",
     "description": "The autonomous security layer for AI agents, wallets, and on-chain infrastructure."
   },
+  "routes": {
+    "home": "/",
+    "docs": "/docs",
+    "platform": "/#platform",
+    "securityEngine": "/#security",
+    "developers": "/docs#integration",
+    "resources": "/docs#overview",
+    "login": "#login",
+    "launchPlatform": "#waitlist-form"
+  },
   "navbar": {
     "brand": {
       "name": "SAK",
-      "tagline": "SOLANA AGENT KERNEL"
+      "tagline": "SOLANA AGENT KERNEL",
+      "route": "home"
     },
     "links": [
-      { "label": "Platform" },
-      { "label": "Security Engine" },
-      { "label": "Developers" },
-      { "label": "Resources" },
-      { "label": "Company" }
+      { "label": "Platform", "route": "platform", "hasDropdown": true },
+      { "label": "Security Engine", "route": "securityEngine", "hasDropdown": true },
+      { "label": "Developers", "route": "developers", "hasDropdown": true },
+      { "label": "Resources", "route": "resources", "hasDropdown": true },
+      { "label": "Docs", "route": "docs", "hasDropdown": false }
     ],
     "actions": {
       "login": "Log In",
-      "launch": "Launch Platform"
+      "loginRoute": "login",
+      "launch": "Launch Platform",
+      "launchRoute": "launchPlatform"
     }
   },
   "hero": {
@@ -28,8 +41,8 @@
     "headingLine4Highlight": "They Execute.",
     "subtext": "Real-time threat detection, simulation, and autonomous protection for AI agents, wallets, and decentralized infrastructure.",
     "cta": [
-      { "label": "Launch Platform", "type": "primary", "icon": "arrow-right" },
-      { "label": "View Documentation", "type": "secondary", "icon": "file-text" }
+      { "label": "Launch Platform", "type": "primary", "icon": "arrow-right", "route": "launchPlatform" },
+      { "label": "View Documentation", "type": "secondary", "icon": "file-text", "route": "docs" }
     ],
     "floatingCards": [
       "AI AGENT MONITORING",

@@ -22,6 +22,7 @@ import {
   Zap,
 } from "lucide-react";
 import docs from "../../../dev-asset/sak-docs.json";
+import siteContent from "../../content.json";
 import "../../index.css";
 
 type JsonValue = string | number | boolean | null | JsonObject | JsonValue[];
@@ -538,7 +539,7 @@ export function DocsPage() {
   function openPage(id: PageId) {
     setActiveId(id);
     setMobileOpen(false);
-    window.history.replaceState(null, "", `/docs#${id}`);
+    window.history.replaceState(null, "", `${siteContent.routes.docs}#${id}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -549,7 +550,7 @@ export function DocsPage() {
 
       <header className="sticky top-0 z-50 border-b border-green-500/10 bg-[#080810]/85 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3 text-gray-400 hover:text-green-400 transition-colors">
+          <a href={siteContent.routes.home} className="flex items-center gap-3 text-gray-400 hover:text-green-400 transition-colors">
             <ArrowLeft className="w-4 h-4" />
             <span className="font-display text-xs">Back to Landing</span>
           </a>
