@@ -9,15 +9,20 @@ export function TrustedBySection() {
   return (
     <section className="relative py-10 border-y border-green-500/10 bg-[#060a06] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-6">
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-display text-[10px] tracking-[0.3em] text-green-600/60 text-center"
+          className="text-center space-y-2"
         >
-          {trustedBy.label}
-        </motion.p>
+          <p className="font-display text-[10px] tracking-[0.3em] text-green-600/60">
+            {trustedBy.label}
+          </p>
+          <p className="font-display text-[9px] tracking-[0.2em] text-gray-600 uppercase">
+            {trustedBy.note}
+          </p>
+        </motion.div>
       </div>
 
       {/* marquee track */}

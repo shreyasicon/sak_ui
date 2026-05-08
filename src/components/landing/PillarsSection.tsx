@@ -114,7 +114,10 @@ export function PillarsSection() {
 
                 {/* main content */}
                 <div className="flex-1 p-4 overflow-hidden">
-                  <div className="font-display text-xs text-white/80 mb-3">{pillars.dashboard.title}</div>
+                  <div className="mb-3">
+                    <div className="font-display text-xs text-white/80">{pillars.dashboard.title}</div>
+                    <div className="font-display text-[8px] text-green-500/60 mt-1">{pillars.dashboard.subtitle}</div>
+                  </div>
 
                   {/* stat cards row */}
                   <div className="grid grid-cols-3 gap-2 mb-4">

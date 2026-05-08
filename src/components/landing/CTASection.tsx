@@ -56,14 +56,14 @@ export function CTASection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-wrap items-center justify-center gap-4"
         >
-          <button className="flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-400 text-black font-display font-bold text-sm rounded-lg transition-all duration-200 glow-green">
+          <a href={cta.buttons[0].href} className="flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-400 text-black font-display font-bold text-sm rounded-lg transition-all duration-200 glow-green">
             {cta.buttons[0].label}
             <ArrowRight className="w-4 h-4" />
-          </button>
-          <button className="flex items-center gap-2 px-6 py-3 border border-white/20 hover:border-white/40 text-white font-display text-sm rounded-lg transition-all duration-200 hover:bg-white/5">
+          </a>
+          <a href={cta.buttons[1].href} className="flex items-center gap-2 px-6 py-3 border border-white/20 hover:border-white/40 text-white font-display text-sm rounded-lg transition-all duration-200 hover:bg-white/5">
             <Calendar className="w-4 h-4" />
             {cta.buttons[1].label}
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>

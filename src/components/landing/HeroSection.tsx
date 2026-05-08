@@ -75,6 +75,37 @@ function HeroDevice() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-green-400/8 blur-2xl animate-pulse-ring" />
       </div>
 
+      {/* ── floating capability cards ── */}
+      {content.hero.floatingCards.map((card, index) => {
+        const positions = [
+          "top-14 left-2 md:left-8",
+          "top-24 right-0 md:right-6",
+          "bottom-28 left-0 md:left-4",
+          "bottom-20 right-2 md:right-10",
+        ];
+
+        return (
+          <motion.div
+            key={card}
+            initial={{ opacity: 0, y: 14, scale: 0.92 }}
+            animate={{ opacity: 1, y: [0, -8, 0], scale: 1 }}
+            transition={{
+              opacity: { duration: 0.5, delay: 1.1 + index * 0.12 },
+              scale: { duration: 0.5, delay: 1.1 + index * 0.12 },
+              y: { duration: 4 + index * 0.4, repeat: Infinity, ease: "easeInOut", delay: index * 0.25 },
+            }}
+            className={`absolute z-20 hidden sm:block ${positions[index]} px-3 py-2 rounded-lg border border-green-500/25 bg-[#080810]/70 backdrop-blur-md glow-green-sm`}
+          >
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_8px_rgba(0,232,122,0.9)]" />
+              <span className="font-display text-[9px] tracking-[0.18em] text-green-300/90 whitespace-nowrap">
+                {card}
+              </span>
+            </div>
+          </motion.div>
+        );
+      })}
+
       {/* ── rotating orbit rings ── */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] w-56 h-56 pointer-events-none">
         <div className="absolute inset-0 rounded-full border border-green-500/20 animate-spin-slow" />

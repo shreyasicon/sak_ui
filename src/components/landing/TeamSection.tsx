@@ -37,7 +37,7 @@ export function TeamSection() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-2 lg:grid-cols-4 gap-5"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
@@ -48,7 +48,7 @@ export function TeamSection() {
               key={member.name}
               variants={cardVariant}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="group p-5 border border-green-500/12 rounded-xl bg-[#080e08] card-hover-glow flex flex-col gap-4"
+              className="group p-5 border border-green-500/12 rounded-xl bg-[#080810] card-hover-glow flex flex-col gap-4"
             >
               {/* avatar */}
               <div className="relative w-12 h-12 rounded-xl border border-green-500/25 bg-green-500/8 flex items-center justify-center overflow-hidden">
@@ -84,6 +84,19 @@ export function TeamSection() {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-6 p-5 border border-green-500/12 rounded-xl bg-[#080810] card-hover-glow"
+        >
+          <div className="font-display text-[10px] tracking-[0.25em] text-green-400/70 mb-2 uppercase">
+            {team.advisors.title}
+          </div>
+          <p className="text-gray-400 text-sm">{team.advisors.description}</p>
         </motion.div>
       </div>
     </section>

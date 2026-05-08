@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "SAK — Solana Agent Kernel",
-    "description": "The autonomous security layer for AI agents, wallets, and decentralized infrastructure."
+    "description": "The autonomous security layer for AI agents, wallets, and on-chain infrastructure."
   },
   "navbar": {
     "brand": {
@@ -16,14 +16,14 @@
       { "label": "Company" }
     ],
     "actions": {
-      "login": "Log in",
+      "login": "Log In",
       "launch": "Launch Platform"
     }
   },
   "hero": {
-    "badge": "AUTONOMOUS SECURITY LAYER:TORIHEB3",
+    "badge": "AUTONOMOUS SECURITY LAYER FOR WEB3",
     "headingLine1": "Secure Autonomous",
-    "headingLine2": "AI Systems ",
+    "headingLine2": "AI Agents ",
     "headingLine3Highlight": "Before",
     "headingLine4Highlight": "They Execute.",
     "subtext": "Real-time threat detection, simulation, and autonomous protection for AI agents, wallets, and decentralized infrastructure.",
@@ -31,34 +31,41 @@
       { "label": "Launch Platform", "type": "primary", "icon": "arrow-right" },
       { "label": "View Documentation", "type": "secondary", "icon": "file-text" }
     ],
+    "floatingCards": [
+      "AI AGENT MONITORING",
+      "REAL-TIME SIMULATION",
+      "INTENT ANALYSIS",
+      "ZK STATE VERIFICATION"
+    ],
     "stats": [
-      { "value": "26/29", "label": "Malicious Patterns Blocked", "icon": "shield" },
+      { "value": "20/20", "label": "Malicious Patterns Blocked", "icon": "shield" },
       { "value": "50ms", "label": "Average Response Time", "icon": "zap" },
       { "value": "98%", "label": "Threats Blocked Before Execution", "icon": "target" }
     ],
     "terminal": {
-      "title": "SAK_1 Guardian — Live Safety Log",
+      "title": "SAK Guardian — Live Safety Log",
       "logs": [
-        { "type": "warn",  "text": "[SIGUSDCC] amd_110000 000M0s_7 2000ps" },
-        { "type": "info",  "text": "0010 1Tr0ff0r 0.00p 00" },
-        { "type": "allow", "text": "[ALLOWED] Attached Programs 100% of Program 10" },
-        { "type": "allow", "text": "[ALLOWED] amd.service.Green 0.0s 1 SAL i SQL" },
-        { "type": "allow", "text": "[ALLOWED] Jupiter Swap 100 USDC → SOL 0.0%" }
+        { "type": "warn", "text": "[INTENT] Agent requested Jupiter route: USDC → SOL" },
+        { "type": "info", "text": "[LITESVM] Forked local state and simulated transaction" },
+        { "type": "block", "text": "[BLOCKED] Router attempted hidden delegate authority" },
+        { "type": "allow", "text": "[ALLOWED] Clean swap intent passed Guardian policy" },
+        { "type": "allow", "text": "[ZK-STATE] Compressed safety record committed" }
       ],
-      "footer": "Blocked: 47     Allowed: 18     Cost: $0.00"
+      "footer": "Blocked: 20     Allowed: 184     Cost saved: 100%"
     }
   },
   "trustedBy": {
     "label": "TRUSTED BY BUILDERS & ENTERPRISES",
+    "note": "Ecosystem & Team Background",
     "logos": [
-      "SOLANA",
+      "Solana",
       "Chainlink",
-      "polygon",
-      "APTOS",
-      "AVALANCHE",
-      "SOJAN NETWORKS",
+      "Polygon",
+      "Aptos",
+      "Avalanche",
+      "Tejas Networks",
       "EY",
-      "McKinsey & Company"
+      "McKinsey"
     ]
   },
   "security": {
@@ -71,7 +78,7 @@
         "label": "OLD SECURITY",
         "items": [
           "Detect after exploit",
-          "Human transaction",
+          "Human intervention",
           "Signature-based rules",
           "High false positives",
           "Reactive protection"
@@ -81,7 +88,7 @@
         "label": "SAK SECURITY",
         "items": [
           "Prevent before execution",
-          "Autonomous coexition",
+          "Autonomous response",
           "Intent-based simulation",
           "Zero false negatives",
           "Proactive protection"
@@ -89,9 +96,9 @@
       }
     },
     "stats": [
-      { "value": "$2.7B+", "label": "Lost in Web3 Exploits" },
-      { "value": "160+",   "label": "Major incidents in 2024" },
-      { "value": "0.05s",  "label": "To stop a malicious intent" }
+      { "value": "$1.8B+", "label": "Lost to AI Agent Exploits in 2025" },
+      { "value": "26", "label": "Active malicious LLM routers found (April 2026)" },
+      { "value": "43ms", "label": "To stop a malicious intent" }
     ]
   },
   "pillars": {
@@ -101,85 +108,118 @@
         "icon": "shield",
         "name": "GUARDIAN",
         "tagline": "Pre-sign Simulation Engine",
-        "description": "Simulate every execution with 100% mathematical certainty before signing."
+        "description": "Simulates every transaction in LiteSVM with 100% mathematical certainty before signing. 20 attack patterns blocked. Zero on-chain cost for rejections."
       },
       {
         "icon": "zap",
         "name": "REFLEX ENGINE",
-        "tagline": "Same-Time Threat Awareness",
-        "description": "React within 5ms of on-chain events with autonomous threat response and real-time simulation."
+        "tagline": "Same-Slot Threat Awareness",
+        "description": "Yellowstone Geyser. No polling. React within 50ms of on-chain events. Polling agents are always 3 slots behind. SAK wins the slot."
       },
       {
         "icon": "package",
         "name": "ZK STATE",
         "tagline": "Compressed Secure State",
-        "description": "1,000x integer store coverage rate. Light Protocol: $3,500 → $100 rent."
+        "description": "1,000x cheaper state storage via Light Protocol. $300,000 in rent becomes $300. Micro-agent swarms are now economically viable."
       }
     ],
     "dashboard": {
-      "title": "Security Overview",
+      "title": "Guardian Dashboard",
+      "subtitle": "Live safety log and execution trace",
       "stats": [
-        { "label": "Threats Flagged",   "value": "29/20", "sub": "300 hits" },
-        { "label": "Perimeter Data",    "value": "50ms",  "sub": "Run ops" },
-        { "label": "Execution Security","value": "100%",  "sub": "Satisfactory" }
+        { "label": "Patterns Blocked", "value": "20/20", "sub": "Attack set" },
+        { "label": "Response Time", "value": "50ms", "sub": "Same slot" },
+        { "label": "Rejection Cost", "value": "$0", "sub": "Pre-chain" }
       ],
       "recentSessions": [
-        { "name": "Cosmos Benghales",  "detail": "23 ago" },
-        { "name": "Manu Occupation",   "detail": "39 ago" },
-        { "name": "Kearins Condoh",    "detail": "49 ago" },
-        { "name": "Sandus/Altum",      "detail": "Startup · 59 ago" }
+        { "name": "Hidden delegate blocked", "detail": "blocked · 2s ago" },
+        { "name": "Clean swap approved", "detail": "allowed · 8s ago" },
+        { "name": "Router spoof detected", "detail": "blocked · 14s ago" },
+        { "name": "ZK state verified", "detail": "verified · 21s ago" }
       ]
     }
+  },
+  "howItWorks": {
+    "sectionLabel": "THE STACK POSITION",
+    "diagram": ["LLM", "elizaOS / Agent Kit", "SAK ← HERE", "Solana"],
+    "steps": [
+      "Agent generates transaction intent",
+      "SAK Guardian simulates locally in LiteSVM",
+      "Allow to chain or block at zero cost"
+    ]
+  },
+  "demoPreview": {
+    "heading": "See It Working Live",
+    "subtext": "Preview the Guardian dashboard with blocked and allowed transactions, three-panel safety monitoring, and animated execution traces.",
+    "panels": [
+      {
+        "title": "Intent Queue",
+        "items": ["Swap intent received", "Router path expanded", "Authority graph loaded"]
+      },
+      {
+        "title": "Guardian Simulation",
+        "items": ["LiteSVM fork created", "20 attack patterns tested", "Hidden delegate detected"]
+      },
+      {
+        "title": "Decision Log",
+        "items": ["BLOCK malicious route", "ALLOW clean swap", "WRITE compressed proof"]
+      }
+    ],
+    "cta": "Launch Live Demo"
   },
   "roadmap": {
     "sectionLabel": "ROADMAP",
     "milestones": [
-      { "quarter": "Q3 2025", "title": "Beta Mainnet",        "subtitle": "Design Partners",      "active": true  },
-      { "quarter": "Q3 2026", "title": "Public $54",           "subtitle": "& Agent API",           "active": false },
-      { "quarter": "Q3 2026", "title": "Enterprise Tier",      "subtitle": "& OPC Deployment",      "active": false },
-      { "quarter": "Q3 2027", "title": "Autonomous Security",  "subtitle": "Layer For AI",          "active": false }
+      { "quarter": "Q2 2026", "title": "Guardian Live", "subtitle": "Beta Mainnet, Design Partners", "active": true },
+      { "quarter": "Q3 2026", "title": "Public SDK", "subtitle": "elizaOS Plugin, TypeScript Bindings", "active": false },
+      { "quarter": "Q4 2026", "title": "Enterprise Tier", "subtitle": "VPC Deployment, SLA, Custom Rules", "active": false },
+      { "quarter": "Q1 2027", "title": "Full Kernel", "subtitle": "Reflex Engine + ZK State production", "active": false }
     ]
   },
   "team": {
     "sectionLabel": "BUILT BY EXPERTS",
     "members": [
       {
-        "initials": "PG",
-        "name": "Pratheek G",
+        "initials": "BS",
+        "name": "Balaji Segu Krishnaiah",
+        "role": "Founder & CEO",
+        "bio": "McKinsey · Tejas Networks · MSc AI, DCU",
+        "social": { "linkedin": "#", "twitter": "#" }
+      },
+      {
+        "initials": "PC",
+        "name": "Prateek C",
         "role": "Co-Founder & CTO",
-        "bio": "Sr. Naya Rutharks, Glenhaven Epstrom, Soresum",
+        "bio": "Tejas Networks · MSc AI · Production Rust, Solana systems",
         "social": { "linkedin": "#", "twitter": "#" }
       },
       {
-        "initials": "SS",
-        "name": "Sarthik S",
-        "role": "Co-Founder & CSO",
-        "bio": "SLPO, Co-Founding AI & Infrastructure",
+        "initials": "SG",
+        "name": "Sai Shreyas Gubbi Harish",
+        "role": "Co-Founder",
+        "bio": "EY · MSc Cloud, NCI · Infrastructure & DevOps",
         "social": { "linkedin": "#", "twitter": "#" }
       },
       {
-        "initials": "SB",
-        "name": "Seeher B",
-        "role": "Lead Engineer",
-        "bio": "Systems Grousing & Blockchain Security",
+        "initials": "TS",
+        "name": "Tejas Shiv Kumar",
+        "role": "CMO",
+        "bio": "AceMicromatic · MSc Data Analytics, DCU · GTM & Growth",
         "social": { "linkedin": "#", "twitter": "#" }
-      },
-      {
-        "initials": "AD",
-        "name": "Advisor",
-        "role": "Industry Leaders",
-        "bio": "Mcfirms, HX, hype forecorals & More",
-        "social": { "twitter": "#", "discord": "#" }
       }
-    ]
+    ],
+    "advisors": {
+      "title": "Advisors",
+      "description": "McKinsey, EY, Tejas Networks & More"
+    }
   },
   "cta": {
     "headingLine1": "Build AI Systems",
     "headingLine2Start": "That Can't ",
     "headingLine2Highlight": "Be Used Against You.",
     "buttons": [
-      { "label": "Join the Waitlist", "type": "primary",   "icon": "arrow-right" },
-      { "label": "Book a Demo",       "type": "secondary", "icon": "calendar" }
+      { "label": "Join the Waitlist", "type": "primary", "icon": "arrow-right", "href": "#waitlist-form" },
+      { "label": "Book a Demo", "type": "secondary", "icon": "calendar", "href": "#calendly" }
     ]
   },
   "footer": {
@@ -188,9 +228,9 @@
       "tagline": "SOLANA AGENT KERNEL",
       "description": "The autonomous security layer for AI agents, wallets, and on-chain infrastructure.",
       "social": [
-        { "platform": "twitter",  "href": "#" },
-        { "platform": "discord",  "href": "#" },
-        { "platform": "github",   "href": "#" },
+        { "platform": "twitter", "href": "#" },
+        { "platform": "discord", "href": "#" },
+        { "platform": "github", "href": "#" },
         { "platform": "linkedin", "href": "#" }
       ]
     },
@@ -198,44 +238,45 @@
       {
         "title": "PRODUCT",
         "links": [
-          { "label": "Platform",        "href": "#" },
+          { "label": "Platform", "href": "#" },
           { "label": "Security Engine", "href": "#" },
-          { "label": "APIs",            "href": "#" },
-          { "label": "SAK",             "href": "#" }
+          { "label": "APIs", "href": "#" },
+          { "label": "SDK", "href": "#" }
         ]
       },
       {
         "title": "RESOURCES",
         "links": [
           { "label": "Documentation", "href": "#" },
-          { "label": "Whitepaper",    "href": "#" },
-          { "label": "Blog",          "href": "#" },
-          { "label": "Security",      "href": "#" }
+          { "label": "Whitepaper", "href": "#" },
+          { "label": "Blog", "href": "#" },
+          { "label": "Security", "href": "#" }
         ]
       },
       {
         "title": "COMPANY",
         "links": [
-          { "label": "About Us",  "href": "#" },
-          { "label": "Careers",   "href": "#" },
+          { "label": "About Us", "href": "#" },
+          { "label": "Careers", "href": "#" },
+          { "label": "Contact", "href": "#" },
           { "label": "Press Kit", "href": "#" }
         ]
       },
       {
         "title": "LEGAL",
         "links": [
-          { "label": "Privacy Policy",    "href": "#" },
-          { "label": "Terms of Service",  "href": "#" },
-          { "label": "Cookie Policy",     "href": "#" }
+          { "label": "Privacy Policy", "href": "#" },
+          { "label": "Terms of Service", "href": "#" },
+          { "label": "Cookie Policy", "href": "#" }
         ]
       }
     ],
     "newsletter": {
       "title": "NEWSLETTER",
-      "description": "Stay updated to threats, releases, and security insights.",
+      "description": "Stay updated on threats, releases, and security insights.",
       "placeholder": "Enter your email",
-      "buttonLabel": "→"
+      "buttonLabel": "Subscribe"
     },
-    "copyright": "© 2025 SAK. All rights reserved."
+    "copyright": "© 2026 SAK. All rights reserved."
   }
 }

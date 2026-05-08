@@ -10,7 +10,7 @@ html {
 
 body {
   font-family: "Inter", system-ui, -apple-system, sans-serif;
-  background-color: #070c07;
+  background-color: #080810;
   color: #e2f0e2;
   overflow-x: hidden;
   margin: 0;
@@ -169,7 +169,7 @@ body::before {
 
 /* ── Custom scrollbar ────────────────── */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #070c07; }
+::-webkit-scrollbar-track { background: #080810; }
 ::-webkit-scrollbar-thumb { background: rgba(34,197,94,0.25); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(34,197,94,0.45); }
 

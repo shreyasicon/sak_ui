@@ -19,7 +19,9 @@ A React + Bun + Tailwind CSS + shadcn/ui landing page for **SAK — Solana Agent
 - Scroll reveal animations across sections
 - Infinite trusted-partner marquee
 - Old security vs SAK security comparison section
-- Three pillars section with animated dashboard mockup
+- Three pillars section with animated Guardian dashboard mockup
+- Stack-position / how-it-works section
+- Live demo preview section with three-panel dashboard simulation
 - Animated roadmap timeline
 - Team cards, CTA section, newsletter footer
 - All landing page text is stored in one JSON file
@@ -57,6 +59,8 @@ src/components/landing/
 ├── TrustedBySection.tsx
 ├── SecuritySection.tsx
 ├── PillarsSection.tsx
+├── HowItWorksSection.tsx
+├── DemoPreviewSection.tsx
 ├── RoadmapSection.tsx
 ├── TeamSection.tsx
 ├── CTASection.tsx
