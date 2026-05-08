@@ -10,8 +10,15 @@ import { RoadmapSection }  from "./components/landing/RoadmapSection";
 import { TeamSection }     from "./components/landing/TeamSection";
 import { CTASection }      from "./components/landing/CTASection";
 import { Footer }          from "./components/landing/Footer";
+import { DocsPage }        from "./components/docs/DocsPage";
 
 export function App() {
+  const isDocsPage = window.location.pathname === "/docs";
+
+  if (isDocsPage) {
+    return <DocsPage />;
+  }
+
   return (
     <div className="min-h-screen bg-[#080810] text-white overflow-x-hidden">
       <Navbar />

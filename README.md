@@ -25,16 +25,31 @@ A React + Bun + Tailwind CSS + shadcn/ui landing page for **SAK — Solana Agent
 - Animated roadmap timeline
 - Team cards, CTA section, newsletter footer
 - All landing page text is stored in one JSON file
+- Dedicated `/docs` page rendered from `dev-asset/sak-docs.json`
+- Sidebar-driven multi-page docs experience where each docs topic renders independently
+- Flexible docs renderer supports nested JSON, arrays, code blocks, API references, rules, FAQ, team, deployment, and raw JSON fallback
 
 ## Content Management
 
-All editable landing page text lives in:
+Landing page text lives in:
 
 ```txt
 src/content.json
 ```
 
-Update this file to change:
+Documentation page content lives in:
+
+```txt
+dev-asset/sak-docs.json
+```
+
+The docs page is available at:
+
+```txt
+/docs
+```
+
+Update `src/content.json` to change:
 
 - Navbar labels
 - Hero copy and stats
@@ -53,6 +68,8 @@ Update this file to change:
 src/App.tsx
 src/content.json
 src/index.css
+dev-asset/sak-docs.json
+src/components/docs/DocsPage.tsx
 src/components/landing/
 ├── Navbar.tsx
 ├── HeroSection.tsx

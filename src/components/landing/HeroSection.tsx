@@ -387,10 +387,10 @@ export function HeroSection() {
               {hero.cta[0].label}
               <ArrowRight className="w-4 h-4" />
             </button>
-            <button className="flex items-center gap-2 px-5 py-2.5 border border-white/20 hover:border-white/40 text-white font-display text-sm rounded transition-all duration-200 hover:bg-white/5">
+            <a href="/docs" className="flex items-center gap-2 px-5 py-2.5 border border-white/20 hover:border-white/40 text-white font-display text-sm rounded transition-all duration-200 hover:bg-white/5">
               <FileText className="w-4 h-4" />
               {hero.cta[1].label}
-            </button>
+            </a>
           </motion.div>
 
           {/* stats row */}
