@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 import plugin from "bun-plugin-tailwind";
 import { existsSync } from "fs";
-import { rm } from "fs/promises";
+import { rm, writeFile } from "fs/promises";
 import path from "path";
 
 if (process.argv.includes("--help") || process.argv.includes("-h")) {
@@ -129,6 +129,7 @@ const result = await Bun.build({
   minify: true,
   target: "browser",
   sourcemap: "linked",
+  publicPath: "/",
   define: {
     "process.env.NODE_ENV": JSON.stringify("production"),
   },
@@ -145,5 +146,7 @@ const outputTable = result.outputs.map(output => ({
 
 console.table(outputTable);
 const buildTime = (end - start).toFixed(2);
+
+await writeFile(path.join(outdir, "_redirects"), "/* /index.html 200\n");
 
 console.log(`\n✅ Build completed in ${buildTime}ms\n`);
