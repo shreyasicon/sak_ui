@@ -1,103 +1,101 @@
 import { motion } from "framer-motion";
-import { Twitter, Linkedin, MessageCircle } from "lucide-react";
+import { Twitter, Linkedin } from "lucide-react";
 import content from "../../content.json";
 
-const socialIcon = (platform: string) => {
-  const cls = "w-3.5 h-3.5";
-  if (platform === "linkedin") return <Linkedin  className={cls} />;
-  if (platform === "discord")  return <MessageCircle className={cls} />;
-  return                               <Twitter  className={cls} />;
-};
+/* Placeholder headshots — replace with real photos */
+const PHOTOS = [
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face&q=80",
+  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face&q=80",
+  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face&q=80",
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face&q=80",
+];
 
-const cardVariant = {
-  hidden: { opacity: 0, y: 30, scale: 0.97 },
-  show:   { opacity: 1, y: 0,  scale: 1    },
-};
+const fadeUp = (delay = 0) => ({
+  initial:    { opacity: 0, y: 24 },
+  whileInView:{ opacity: 1, y: 0  },
+  viewport:   { once: true },
+  transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const, delay },
+});
 
 export function TeamSection() {
   const { team } = content;
 
-  return (
-    <section className="relative py-24 bg-[#060a06] overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(34,197,94,0.04)_0%,transparent_55%)] pointer-events-none" />
+  /* Parse bio string into two background items */
+  const parseBio = (bio: string) =>
+    bio.split(" · ").slice(0, 2);
 
+  return (
+    <section className="relative py-36 bg-[#080810] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* section label */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
-          <span className="font-display text-[10px] tracking-[0.3em] text-green-400/70 border border-green-500/20 px-3 py-1 rounded-sm bg-green-500/5">
-            {team.sectionLabel}
-          </span>
+        <motion.div {...fadeUp(0)} className="mb-5">
+          <span className="font-display text-[10px] tracking-[0.2em] text-[#00e87a] uppercase">Built By</span>
         </motion.div>
 
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ staggerChildren: 0.12 }}
+        <motion.h2
+          {...fadeUp(0.08)}
+          className="font-display font-bold text-4xl sm:text-5xl text-white leading-[1.1] mb-16"
         >
-          {team.members.map((member) => (
-            <motion.div
-              key={member.name}
-              variants={cardVariant}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="group p-5 border border-green-500/12 rounded-xl bg-[#080810] card-hover-glow flex flex-col gap-4"
-            >
-              {/* avatar */}
-              <div className="relative w-12 h-12 rounded-xl border border-green-500/25 bg-green-500/8 flex items-center justify-center overflow-hidden">
-                <span className="font-display font-bold text-sm text-green-400">
-                  {member.initials}
-                </span>
-                {/* subtle glow on hover */}
-                <div className="absolute inset-0 bg-green-400/0 group-hover:bg-green-400/5 transition-colors rounded-xl" />
-              </div>
+          People who've seen<br />production systems break.
+        </motion.h2>
 
-              <div className="flex-1">
-                <div className="font-display font-bold text-sm text-white leading-tight mb-0.5">
-                  {member.name}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          {team.members.map((member, i) => {
+            const bgItems = parseBio(member.bio);
+            return (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.18 + i * 0.08 }}
+                className="group border border-white/[0.06] rounded-2xl bg-[#0d0d1a] p-6 flex flex-col gap-4 hover:border-white/[0.1] transition-colors duration-300"
+              >
+                {/* photo */}
+                <div className="w-full aspect-square rounded-xl overflow-hidden bg-[#090912]">
+                  <img
+                    src={PHOTOS[i] ?? PHOTOS[0]}
+                    alt={member.name}
+                    className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
+                  />
                 </div>
-                <div className="font-display text-[10px] text-green-400/70 mb-2">
-                  {member.role}
+
+                {/* name + role */}
+                <div>
+                  <div className="text-white font-semibold text-[16px] leading-tight mb-1">
+                    {member.name}
+                  </div>
+                  <div className="text-[#00e87a] text-[13px] font-display">
+                    {member.role}
+                  </div>
                 </div>
-                <p className="text-gray-500 text-xs leading-relaxed">{member.bio}</p>
-              </div>
 
-              {/* socials */}
-              <div className="flex items-center gap-2 pt-2 border-t border-green-500/8">
-                {Object.entries(member.social).map(([platform, href]) => (
-                  <a
-                    key={platform}
-                    href={href}
-                    className="p-1.5 text-gray-600 hover:text-green-400 transition-colors rounded hover:bg-green-500/8"
-                    aria-label={platform}
-                  >
-                    {socialIcon(platform)}
-                  </a>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+                {/* background items */}
+                <div className="flex flex-col gap-1">
+                  {bgItems.map((item) => (
+                    <div key={item} className="text-[#8888aa] text-[13px] leading-snug">
+                      {item}
+                    </div>
+                  ))}
+                </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-6 p-5 border border-green-500/12 rounded-xl bg-[#080810] card-hover-glow"
-        >
-          <div className="font-display text-[10px] tracking-[0.25em] text-green-400/70 mb-2 uppercase">
-            {team.advisors.title}
-          </div>
-          <p className="text-gray-400 text-sm">{team.advisors.description}</p>
-        </motion.div>
+                {/* socials */}
+                <div className="flex items-center gap-2 pt-3 border-t border-white/[0.05] mt-auto">
+                  {Object.entries(member.social).map(([platform, href]) => (
+                    <a
+                      key={platform}
+                      href={href}
+                      className="w-7 h-7 flex items-center justify-center text-[#8888aa] hover:text-white transition-colors rounded"
+                      aria-label={platform}
+                    >
+                      {platform === "linkedin" ? <Linkedin className="w-3.5 h-3.5" /> : <Twitter className="w-3.5 h-3.5" />}
+                    </a>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

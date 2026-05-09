@@ -1,111 +1,121 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
-import content from "../../content.json";
+import { Github, Menu, X } from "lucide-react";
 
 export function Navbar() {
   const [scrolled, setScrolled]     = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { navbar, routes } = content;
-  const routeHref = (route: keyof typeof routes) => routes[route];
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0,  opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <motion.header
+      initial={{ y: -16, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300 ${
         scrolled
-          ? "bg-[#070c07]/85 backdrop-blur-xl border-b border-green-500/10 shadow-[0_4px_30px_rgba(0,0,0,0.4)]"
+          ? "bg-[#080810]/92 backdrop-blur-xl border-b border-white/[0.06]"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between gap-8">
 
         {/* ── Brand ── */}
-        <a href={routeHref(navbar.brand.route as keyof typeof routes)} className="flex items-center gap-2 cursor-pointer select-none">
-          <div className="flex flex-col leading-none">
-            <span className="font-display font-bold text-xl tracking-wide text-green-400 glow-green-text">
-              {navbar.brand.name}
-            </span>
-            <span className="font-display text-[7px] text-green-600/80 tracking-[0.22em] mt-0.5">
-              {navbar.brand.tagline}
-            </span>
-          </div>
+        <a href="/" className="flex items-center gap-2 shrink-0">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#00e87a] shadow-[0_0_8px_rgba(0,232,122,0.7)]" />
+          <span className="font-display font-bold text-[15px] text-white tracking-wider">SAK</span>
+          <span className="text-white/15 mx-1">|</span>
+          <span className="font-display text-[9px] text-[#8888aa] tracking-[0.18em] uppercase hidden sm:block">
+            Solana Agent Kernel
+          </span>
         </a>
 
-        {/* ── Desktop Links ── */}
-        <div className="hidden md:flex items-center gap-7">
-          {navbar.links.map((link) => (
-            <a
-              key={link.label}
-              href={routeHref(link.route as keyof typeof routes)}
-              className="flex items-center gap-1 text-sm text-gray-400 hover:text-green-400 transition-colors duration-200 font-medium cursor-pointer"
-            >
-              {link.label}
-              {link.hasDropdown && <ChevronDown className="w-3 h-3 opacity-50" />}
-            </a>
-          ))}
-        </div>
-
-        {/* ── Desktop Actions ── */}
-        <div className="hidden md:flex items-center gap-5">
-          <a href={routeHref(navbar.actions.loginRoute as keyof typeof routes)} className="text-sm text-gray-400 hover:text-white transition-colors duration-200">
-            {navbar.actions.login}
+        {/* ── Center nav ── */}
+        <nav className="hidden md:flex items-center gap-8">
+          <a href="#platform"
+            className="text-[13px] text-[#8888aa] hover:text-white transition-colors duration-200 font-medium">
+            Platform
           </a>
-          <a href={routeHref(navbar.actions.launchRoute as keyof typeof routes)} className="flex items-center gap-2 px-4 py-2 text-sm font-display font-bold text-green-400 border border-green-500/60 rounded hover:bg-green-500/10 hover:border-green-400 transition-all duration-200 glow-green-sm">
-            {navbar.actions.launch}
-            <ArrowRight className="w-3 h-3" />
+          <a href="/docs"
+            className="text-[13px] text-[#8888aa] hover:text-white transition-colors duration-200 font-medium">
+            Documentation
           </a>
-        </div>
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-[13px] text-[#8888aa] hover:text-white transition-colors duration-200 font-medium"
+          >
+            <Github className="w-3.5 h-3.5" />
+            GitHub
+          </a>
+        </nav>
 
-        {/* ── Mobile Hamburger ── */}
-        <button
-          className="md:hidden text-gray-400 hover:text-white p-1"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
+        {/* ── Right CTA ── */}
+        <div className="flex items-center gap-3">
+          <a
+            href="#waitlist-form"
+            className="hidden md:flex h-9 items-center px-4 text-[13px] font-medium text-[#00e87a] border border-[#00e87a]/40 rounded-lg hover:bg-[#00e87a] hover:text-black hover:border-[#00e87a] transition-all duration-200"
+          >
+            Join Waitlist
+          </a>
+
+          {/* mobile hamburger */}
+          <button
+            className="md:hidden text-[#8888aa] hover:text-white p-1 transition-colors"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
 
-      {/* ── Mobile Menu ── */}
+      {/* ── Mobile menu ── */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="md:hidden bg-[#070c07]/95 backdrop-blur-xl border-t border-green-500/10 overflow-hidden"
+            transition={{ duration: 0.22 }}
+            className="md:hidden bg-[#080810]/98 backdrop-blur-xl border-t border-white/[0.06] overflow-hidden"
           >
             <div className="px-6 py-5 space-y-4">
-              {navbar.links.map((link) => (
+              {["Platform", "Documentation"].map((label) => (
                 <a
-                  key={link.label}
-                  href={routeHref(link.route as keyof typeof routes)}
+                  key={label}
+                  href={label === "Documentation" ? "/docs" : "#platform"}
                   onClick={() => setMobileOpen(false)}
-                  className="block text-gray-400 hover:text-green-400 py-1.5 cursor-pointer transition-colors text-sm font-medium"
+                  className="block text-[#8888aa] hover:text-white py-1 text-sm transition-colors"
                 >
-                  {link.label}
+                  {label}
                 </a>
               ))}
-              <div className="pt-3 border-t border-green-500/10 flex flex-col gap-3">
-                <a href={routeHref(navbar.actions.loginRoute as keyof typeof routes)} className="text-sm text-gray-400 text-left">{navbar.actions.login}</a>
-                <a href={routeHref(navbar.actions.launchRoute as keyof typeof routes)} className="px-4 py-2 text-sm font-display font-bold text-green-400 border border-green-500/60 rounded hover:bg-green-500/10 transition-all">
-                  {navbar.actions.launch}
-                </a>
-              </div>
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-[#8888aa] hover:text-white py-1 text-sm transition-colors"
+              >
+                <Github className="w-4 h-4" /> GitHub
+              </a>
+              <a
+                href="#waitlist-form"
+                onClick={() => setMobileOpen(false)}
+                className="mt-4 flex h-10 items-center justify-center text-sm font-medium text-[#00e87a] border border-[#00e87a]/40 rounded-lg hover:bg-[#00e87a] hover:text-black transition-all"
+              >
+                Join Waitlist
+              </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </motion.header>
   );
 }

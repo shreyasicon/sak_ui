@@ -20,11 +20,31 @@
       "route": "home"
     },
     "links": [
-      { "label": "Platform", "route": "platform", "hasDropdown": true },
-      { "label": "Security Engine", "route": "securityEngine", "hasDropdown": true },
-      { "label": "Developers", "route": "developers", "hasDropdown": true },
-      { "label": "Resources", "route": "resources", "hasDropdown": true },
-      { "label": "Docs", "route": "docs", "hasDropdown": false }
+      {
+        "label": "Platform",
+        "route": "platform",
+        "hasDropdown": true
+      },
+      {
+        "label": "Security Engine",
+        "route": "securityEngine",
+        "hasDropdown": true
+      },
+      {
+        "label": "Developers",
+        "route": "developers",
+        "hasDropdown": true
+      },
+      {
+        "label": "Resources",
+        "route": "resources",
+        "hasDropdown": true
+      },
+      {
+        "label": "Docs",
+        "route": "docs",
+        "hasDropdown": false
+      }
     ],
     "actions": {
       "login": "Log In",
@@ -41,8 +61,18 @@
     "headingLine4Highlight": "They Execute.",
     "subtext": "Real-time threat detection, simulation, and autonomous protection for AI agents, wallets, and decentralized infrastructure.",
     "cta": [
-      { "label": "Launch Platform", "type": "primary", "icon": "arrow-right", "route": "launchPlatform" },
-      { "label": "View Documentation", "type": "secondary", "icon": "file-text", "route": "docs" }
+      {
+        "label": "Launch Platform",
+        "type": "primary",
+        "icon": "arrow-right",
+        "route": "launchPlatform"
+      },
+      {
+        "label": "View Documentation",
+        "type": "secondary",
+        "icon": "file-text",
+        "route": "docs"
+      }
     ],
     "floatingCards": [
       "AI AGENT MONITORING",
@@ -51,18 +81,45 @@
       "ZK STATE VERIFICATION"
     ],
     "stats": [
-      { "value": "20/20", "label": "Malicious Patterns Blocked", "icon": "shield" },
-      { "value": "50ms", "label": "Average Response Time", "icon": "zap" },
-      { "value": "98%", "label": "Threats Blocked Before Execution", "icon": "target" }
+      {
+        "value": "20/20",
+        "label": "Malicious Patterns Blocked",
+        "icon": "shield"
+      },
+      {
+        "value": "50ms",
+        "label": "Average Response Time",
+        "icon": "zap"
+      },
+      {
+        "value": "98%",
+        "label": "Threats Blocked Before Execution",
+        "icon": "target"
+      }
     ],
     "terminal": {
       "title": "SAK Guardian — Live Safety Log",
       "logs": [
-        { "type": "warn", "text": "[INTENT] Agent requested Jupiter route: USDC → SOL" },
-        { "type": "info", "text": "[LITESVM] Forked local state and simulated transaction" },
-        { "type": "block", "text": "[BLOCKED] Router attempted hidden delegate authority" },
-        { "type": "allow", "text": "[ALLOWED] Clean swap intent passed Guardian policy" },
-        { "type": "allow", "text": "[ZK-STATE] Compressed safety record committed" }
+        {
+          "type": "warn",
+          "text": "[INTENT] Agent requested Jupiter route: USDC → SOL"
+        },
+        {
+          "type": "info",
+          "text": "[LITESVM] Forked local state and simulated transaction"
+        },
+        {
+          "type": "block",
+          "text": "[BLOCKED] Router attempted hidden delegate authority"
+        },
+        {
+          "type": "allow",
+          "text": "[ALLOWED] Clean swap intent passed Guardian policy"
+        },
+        {
+          "type": "allow",
+          "text": "[ZK-STATE] Compressed safety record committed"
+        }
       ],
       "footer": "Blocked: 20     Allowed: 184     Cost saved: 100%"
     }
@@ -109,9 +166,18 @@
       }
     },
     "stats": [
-      { "value": "$1.8B+", "label": "Lost to AI Agent Exploits in 2025" },
-      { "value": "26", "label": "Active malicious LLM routers found (April 2026)" },
-      { "value": "43ms", "label": "To stop a malicious intent" }
+      {
+        "value": "$1.8B+",
+        "label": "Lost to AI Agent Exploits in 2025"
+      },
+      {
+        "value": "26",
+        "label": "Active malicious LLM routers found (April 2026)"
+      },
+      {
+        "value": "43ms",
+        "label": "To stop a malicious intent"
+      }
     ]
   },
   "pillars": {
@@ -140,21 +206,50 @@
       "title": "Guardian Dashboard",
       "subtitle": "Live safety log and execution trace",
       "stats": [
-        { "label": "Patterns Blocked", "value": "20/20", "sub": "Attack set" },
-        { "label": "Response Time", "value": "50ms", "sub": "Same slot" },
-        { "label": "Rejection Cost", "value": "$0", "sub": "Pre-chain" }
+        {
+          "label": "Patterns Blocked",
+          "value": "20/20",
+          "sub": "Attack set"
+        },
+        {
+          "label": "Response Time",
+          "value": "50ms",
+          "sub": "Same slot"
+        },
+        {
+          "label": "Rejection Cost",
+          "value": "$0",
+          "sub": "Pre-chain"
+        }
       ],
       "recentSessions": [
-        { "name": "Hidden delegate blocked", "detail": "blocked · 2s ago" },
-        { "name": "Clean swap approved", "detail": "allowed · 8s ago" },
-        { "name": "Router spoof detected", "detail": "blocked · 14s ago" },
-        { "name": "ZK state verified", "detail": "verified · 21s ago" }
+        {
+          "name": "Hidden delegate blocked",
+          "detail": "blocked · 2s ago"
+        },
+        {
+          "name": "Clean swap approved",
+          "detail": "allowed · 8s ago"
+        },
+        {
+          "name": "Router spoof detected",
+          "detail": "blocked · 14s ago"
+        },
+        {
+          "name": "ZK state verified",
+          "detail": "verified · 21s ago"
+        }
       ]
     }
   },
   "howItWorks": {
     "sectionLabel": "THE STACK POSITION",
-    "diagram": ["LLM", "elizaOS / Agent Kit", "SAK ← HERE", "Solana"],
+    "diagram": [
+      "LLM",
+      "elizaOS / Agent Kit",
+      "SAK ← HERE",
+      "Solana"
+    ],
     "steps": [
       "Agent generates transaction intent",
       "SAK Guardian simulates locally in LiteSVM",
@@ -167,15 +262,27 @@
     "panels": [
       {
         "title": "Intent Queue",
-        "items": ["Swap intent received", "Router path expanded", "Authority graph loaded"]
+        "items": [
+          "Swap intent received",
+          "Router path expanded",
+          "Authority graph loaded"
+        ]
       },
       {
         "title": "Guardian Simulation",
-        "items": ["LiteSVM fork created", "20 attack patterns tested", "Hidden delegate detected"]
+        "items": [
+          "LiteSVM fork created",
+          "20 attack patterns tested",
+          "Hidden delegate detected"
+        ]
       },
       {
         "title": "Decision Log",
-        "items": ["BLOCK malicious route", "ALLOW clean swap", "WRITE compressed proof"]
+        "items": [
+          "BLOCK malicious route",
+          "ALLOW clean swap",
+          "WRITE compressed proof"
+        ]
       }
     ],
     "cta": "Launch Live Demo"
@@ -183,10 +290,30 @@
   "roadmap": {
     "sectionLabel": "ROADMAP",
     "milestones": [
-      { "quarter": "Q2 2026", "title": "Guardian Live", "subtitle": "Beta Mainnet, Design Partners", "active": true },
-      { "quarter": "Q3 2026", "title": "Public SDK", "subtitle": "elizaOS Plugin, TypeScript Bindings", "active": false },
-      { "quarter": "Q4 2026", "title": "Enterprise Tier", "subtitle": "VPC Deployment, SLA, Custom Rules", "active": false },
-      { "quarter": "Q1 2027", "title": "Full Kernel", "subtitle": "Reflex Engine + ZK State production", "active": false }
+      {
+        "quarter": "Q2 2026",
+        "title": "Guardian Live",
+        "subtitle": "Beta Mainnet, Design Partners",
+        "active": true
+      },
+      {
+        "quarter": "Q3 2026",
+        "title": "Public SDK",
+        "subtitle": "elizaOS Plugin, TypeScript Bindings",
+        "active": false
+      },
+      {
+        "quarter": "Q4 2026",
+        "title": "Enterprise Tier",
+        "subtitle": "VPC Deployment, SLA, Custom Rules",
+        "active": false
+      },
+      {
+        "quarter": "Q1 2027",
+        "title": "Full Kernel",
+        "subtitle": "Reflex Engine + ZK State production",
+        "active": false
+      }
     ]
   },
   "team": {
@@ -197,28 +324,30 @@
         "name": "Balaji Segu Krishnaiah",
         "role": "Founder & CEO",
         "bio": "McKinsey · Tejas Networks · MSc AI, DCU",
-        "social": { "linkedin": "#", "twitter": "#" }
-      },
-      {
-        "initials": "PC",
-        "name": "Prateek C",
-        "role": "Co-Founder & CTO",
-        "bio": "Tejas Networks · MSc AI · Production Rust, Solana systems",
-        "social": { "linkedin": "#", "twitter": "#" }
+        "social": {
+          "linkedin": "#",
+          "twitter": "#"
+        }
       },
       {
         "initials": "SG",
         "name": "Sai Shreyas Gubbi Harish",
         "role": "Co-Founder",
         "bio": "EY · MSc Cloud, NCI · Infrastructure & DevOps",
-        "social": { "linkedin": "#", "twitter": "#" }
+        "social": {
+          "linkedin": "#",
+          "twitter": "#"
+        }
       },
       {
         "initials": "TS",
         "name": "Tejas Shiv Kumar",
         "role": "CMO",
         "bio": "AceMicromatic · MSc Data Analytics, DCU · GTM & Growth",
-        "social": { "linkedin": "#", "twitter": "#" }
+        "social": {
+          "linkedin": "#",
+          "twitter": "#"
+        }
       }
     ],
     "advisors": {
@@ -226,14 +355,17 @@
       "description": "McKinsey, EY, Tejas Networks & More"
     }
   },
-  "cta": {
-    "headingLine1": "Build AI Systems",
-    "headingLine2Start": "That Can't ",
-    "headingLine2Highlight": "Be Used Against You.",
-    "buttons": [
-      { "label": "Join the Waitlist", "type": "primary", "icon": "arrow-right", "href": "#waitlist-form" },
-      { "label": "Book a Demo", "type": "secondary", "icon": "calendar", "href": "#calendly" }
-    ]
+  "waitlist": {
+    "headline": "Build AI Systems That",
+    "headline_green": "Can't Be Used Against You.",
+    "sub": "Join the waitlist. Get early access to SAK Guardian and the elizaOS plugin.",
+    "cta": "Join Waitlist",
+    "api_endpoint": "https://sak-waitlist.skbalajimbl1.workers.dev/api/waitlist",
+    "count_endpoint": "https://sak-waitlist.skbalajimbl1.workers.dev/api/waitlist/count",
+    "baseline_count": 79,
+    "success_message": "You're on the list.",
+    "duplicate_message": "You're already on the list.",
+    "error_message": "Something went wrong. Try again."
   },
   "footer": {
     "brand": {
@@ -241,46 +373,103 @@
       "tagline": "SOLANA AGENT KERNEL",
       "description": "The autonomous security layer for AI agents, wallets, and on-chain infrastructure.",
       "social": [
-        { "platform": "twitter", "href": "#" },
-        { "platform": "discord", "href": "#" },
-        { "platform": "github", "href": "#" },
-        { "platform": "linkedin", "href": "#" }
+        {
+          "platform": "twitter",
+          "href": "#"
+        },
+        {
+          "platform": "discord",
+          "href": "#"
+        },
+        {
+          "platform": "github",
+          "href": "#"
+        },
+        {
+          "platform": "linkedin",
+          "href": "#"
+        }
       ]
     },
     "columns": [
       {
         "title": "PRODUCT",
         "links": [
-          { "label": "Platform", "href": "#" },
-          { "label": "Security Engine", "href": "#" },
-          { "label": "APIs", "href": "#" },
-          { "label": "SDK", "href": "#" }
+          {
+            "label": "Platform",
+            "href": "#"
+          },
+          {
+            "label": "Security Engine",
+            "href": "#"
+          },
+          {
+            "label": "APIs",
+            "href": "#"
+          },
+          {
+            "label": "SDK",
+            "href": "#"
+          }
         ]
       },
       {
         "title": "RESOURCES",
         "links": [
-          { "label": "Documentation", "href": "#" },
-          { "label": "Whitepaper", "href": "#" },
-          { "label": "Blog", "href": "#" },
-          { "label": "Security", "href": "#" }
+          {
+            "label": "Documentation",
+            "href": "#"
+          },
+          {
+            "label": "Whitepaper",
+            "href": "#"
+          },
+          {
+            "label": "Blog",
+            "href": "#"
+          },
+          {
+            "label": "Security",
+            "href": "#"
+          }
         ]
       },
       {
         "title": "COMPANY",
         "links": [
-          { "label": "About Us", "href": "#" },
-          { "label": "Careers", "href": "#" },
-          { "label": "Contact", "href": "#" },
-          { "label": "Press Kit", "href": "#" }
+          {
+            "label": "About Us",
+            "href": "#"
+          },
+          {
+            "label": "Careers",
+            "href": "#"
+          },
+          {
+            "label": "Contact",
+            "href": "#"
+          },
+          {
+            "label": "Press Kit",
+            "href": "#"
+          }
         ]
       },
       {
         "title": "LEGAL",
         "links": [
-          { "label": "Privacy Policy", "href": "#" },
-          { "label": "Terms of Service", "href": "#" },
-          { "label": "Cookie Policy", "href": "#" }
+          {
+            "label": "Privacy Policy",
+            "href": "#"
+          },
+          {
+            "label": "Terms of Service",
+            "href": "#"
+          },
+          {
+            "label": "Cookie Policy",
+            "href": "#"
+          }
         ]
       }
     ],
