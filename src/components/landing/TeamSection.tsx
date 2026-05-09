@@ -2,18 +2,16 @@ import { motion } from "framer-motion";
 import { Twitter, Linkedin } from "lucide-react";
 import content from "../../content.json";
 
-/* Placeholder headshots — replace with real photos */
 const PHOTOS = [
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face&q=80",
-  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face&q=80",
-  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face&q=80",
-  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face&q=80",
+  "balaji.png",
+  "sai_shreyas.png",
+  "tejas.png"
 ];
 
 const fadeUp = (delay = 0) => ({
-  initial:    { opacity: 0, y: 24 },
-  whileInView:{ opacity: 1, y: 0  },
-  viewport:   { once: true },
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
   transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const, delay },
 });
 

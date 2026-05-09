@@ -171,8 +171,8 @@ export default function HeroScene() {
             SAK Guardian intercepts before the chain does.
           </p>
           <div className="flex gap-4">
-            <a href="#demo" className="px-6 py-3 bg-[#00e87a] text-[#080810] font-semibold rounded-lg text-sm hover:opacity-90 transition-opacity">
-              Launch Demo →
+            <a href="#waitlist-form" className="px-6 py-3 bg-[#00e87a] text-[#080810] font-semibold rounded-lg text-sm hover:opacity-90 transition-opacity">
+              Request for Demo →
             </a>
             <a href="/docs" className="px-6 py-3 border border-white/20 text-white font-semibold rounded-lg text-sm hover:border-white/40 transition-colors">
               Read the Docs

@@ -26,8 +26,8 @@ export function App() {
       <Navbar />
       <main>
         <HeroScene />
-        <TrustLogosSection />
         <IncidentSection />
+        <TrustLogosSection />
         <StackSection />
         <ComparisonSection />
         <PillarsSection />

@@ -129,13 +129,128 @@
     "note": "Ecosystem & Team Background",
     "logos": [
       "Solana",
-      "Chainlink",
+      "EY",
       "Polygon",
-      "Aptos",
-      "Avalanche",
+      "Uniswap Hook Incubator",
+      "Ace Micromatic",
       "Tejas Networks",
       "EY",
-      "McKinsey"
+      "McKinsey & Co"
+    ]
+  },
+  "news_incidents": {
+    "section_label": "RECENT INCIDENTS",
+    "headline": "This is already happening.",
+    "sub": "These are not hypothetical. These are documented attacks on AI agents in production.",
+    "urgency_stat": {
+      "value": "$1.8B",
+      "label": "lost to LLM-linked crypto incidents in 2025. Every agent without a kill switch is next.",
+      "cta": "SAK closes the gap",
+      "cta_target": "#demo"
+    },
+    "incidents": [
+      {
+        "id": 1,
+        "publication": "OECD",
+        "date": "2025",
+        "headline": "AI Prompt Injection Exploit Drains Grok-Linked Crypto Wallet",
+        "description": "An attacker sent a Morse code message to Grok. The bot decoded it, passed it to a trading agent, and $200,000 left the wallet in one transaction.",
+        "amount": "$200,000",
+        "amount_label": "drained in one transaction",
+        "severity": "critical",
+        "image": "/grok.png",
+        "url": "https://oecd.ai/en/incidents/2026-05-04-4a73",
+        "sak_fix": "drain_check + program_whitelist fires. Blocked in 43ms. $0 on-chain cost."
+      },
+      {
+        "id": 2,
+        "publication": "The Hacker News",
+        "date": "April 2026",
+        "headline": "New Wave of DPRK Attacks Uses AI-Inserted npm Malware, Fake Firms, and RATs",
+        "description": "Security researchers documented 26 malicious AI routers actively targeting crypto wallets. One drained $500,000 from a single wallet.",
+        "amount_label": "from a single wallet",
+        "severity": "critical",
+        "image": "/hacker_news.png",
+        "url": "https://thehackernews.com/2026/04/new-wave-of-dprk-attacks-uses-ai.html",
+        "sak_fix": "Guardian simulation catches the drain before signing. Rule: max_account_drain."
+      },
+      {
+        "id": 3,
+        "publication": "Trading View",
+        "date": "March 2025",
+        "headline": "Hacker breaks into AI crypto bot aixbt's dashboard to snatch 55 ETH",
+        "description": "An attacker breached the dashboard of an AI crypto bot and made two prompts to transfer 55.5 Ether, worth $106,200, from its wallet.",
+        "amount": "$106,200",
+        "amount_label": "drained in one transaction",
+        "severity": "high",
+        "image": "/trading_view.png",
+        "url": "https://www.tradingview.com/news/cointelegraph:61f9396f2094b:0-hacker-breaks-into-ai-crypto-bot-aixbt-s-dashboard-to-snatch-55-eth/",
+        "sak_fix": "Guardian's program_whitelist blocks unlisted programs. drain_check prevents balance loss."
+      },
+      {
+        "id": 4,
+        "publication": "CCN",
+        "date": "November 2024",
+        "headline": "AI Duped Into Approving $50K Crypto Transfer by Clever User",
+        "description": "A clever crypto user bagged $47,000 after convincing an AI agent to disobey its one instruction: do not send anyone money.",
+        "amount": "$47,000",
+        "amount_label": "drained in one transaction",
+        "severity": "high",
+        "image": "/ai_duped.png",
+        "url": "https://www.ccn.com/news/crypto/ai-duped-50k-crypto-transfer-user/",
+        "sak_fix": "max_slippage + drain_check catches unauthorized transfers regardless of how the instruction was generated."
+      },
+      {
+        "id": 5,
+        "publication": "The Block",
+        "date": "March 2025",
+        "headline": "AI crypto bot AIXBT lost $100,000 worth of ETH after hacker gained unauthorized dashboard access",
+        "description": "AIXBT, an AI agent that provides market commentary, lost approximately $100,000 worth of ETH in an exploit.",
+        "amount": "$106,200",
+        "amount_label": "drained in one transaction",
+        "severity": "high",
+        "image": "/aixbt.png",
+        "url": "https://www.theblock.co/post/346911/ai-crypto-bot-aixbt-lost-eth-hack-unauthorized-dashboard-access",
+        "sak_fix": "Guardian evaluates every transaction before signing. dashboard access does not bypass simulation."
+      },
+      {
+        "id": 6,
+        "publication": "OECD",
+        "date": "June 2025",
+        "headline": "AI-Generated Deepfake Video of Shakira Used in Cryptocurrency Scam in Colombia",
+        "description": "An OpenAI agent was tricked into sending 5.8 ETH, worth roughly $20,000, to a compromised wallet after a user exploited a loophole in its safety protocols.",
+        "amount": "~$20,000",
+        "amount_label": "in a single transaction",
+        "severity": "high",
+        "image": "/shakira.png",
+        "url": "https://oecd.ai/en/incidents/2026-03-16-4dea",
+        "sak_fix": "drain_check fires on any transfer exceeding the lamport cap. Social engineering of the LLM doesn't bypass Guardian."
+      },
+      {
+        "id": 7,
+        "publication": "CryptoRank",
+        "date": "February 2025",
+        "headline": "AI Trading Bot's Catastrophic Error: $250K Meme Coin Windfall Sent to Online Beggar",
+        "description": "An AI trading bot mistakenly sent 52.43 million Lobstar tokens worth ~$250,000 to an online beggar instead of the intended recipient.",
+        "amount": "~$250,000",
+        "amount_label": "in a single transaction",
+        "severity": "high",
+        "image": "/cryptorank.png",
+        "url": "https://cryptorank.io/news/feed/4f3bc-ai-trading-bot-meme-coin-accident",
+        "sak_fix": "program_whitelist + drain_check catches unauthorized token transfers regardless of how the instruction was generated."
+      },
+      {
+        "id": 8,
+        "publication": "Medium",
+        "date": "April 2025",
+        "headline": "Security of AI Agents in Web3: Architecture, Jailbreaks, Vulnerabilities of Modern LLMs",
+        "description": "Active growth in the popularity of LLM models and interest in their integration into Web3 applications reveals systemic security gaps.",
+        "amount": "N/A",
+        "severity": "low",
+        "image": "/medium_article.png",
+        "url": "https://blog.positive.com/security-of-ai-agents-in-web3-dbcb371544f7",
+        "sak_fix": "SAK's three-pillar architecture (Guardian + Reflex + ZK State) addresses all identified vulnerability classes."
+      }
     ]
   },
   "security": {
@@ -323,29 +438,29 @@
         "initials": "BS",
         "name": "Balaji Segu Krishnaiah",
         "role": "Founder & CEO",
-        "bio": "McKinsey · Tejas Networks · MSc AI, DCU",
+        "bio": "Ex-McKinsey & Co  · Ex-Tejas Networks · MSc AI, DCU · Uniswap Hook Incubator",
         "social": {
-          "linkedin": "#",
-          "twitter": "#"
+          "linkedin": "https://www.linkedin.com/in/s-k-balaji/",
+          "twitter": "https://x.com/BalajiS20877995"
         }
       },
       {
         "initials": "SG",
         "name": "Sai Shreyas Gubbi Harish",
         "role": "Co-Founder",
-        "bio": "EY · MSc Cloud, NCI · Infrastructure & DevOps",
+        "bio": "Ex-EY · MSc Cloud, NCI · Infrastructure & DevOps · Uniswap Hook Incubator",
         "social": {
-          "linkedin": "#",
+          "linkedin": "https://www.linkedin.com/in/sai-shreyas/",
           "twitter": "#"
         }
       },
       {
         "initials": "TS",
         "name": "Tejas Shiv Kumar",
-        "role": "CMO",
-        "bio": "AceMicromatic · MSc Data Analytics, DCU · GTM & Growth",
+        "role": "CTO",
+        "bio": "Ex-AceMicromatic · MSc Data Analytics, DCU · GTM & Growth",
         "social": {
-          "linkedin": "#",
+          "linkedin": "https://www.linkedin.com/in/tejas-shiva-kumar-51940a24b/",
           "twitter": "#"
         }
       }

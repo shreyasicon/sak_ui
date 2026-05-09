@@ -59,11 +59,8 @@ export function Footer() {
           {/* ── Brand ── */}
           <div className="col-span-2 md:col-span-1 space-y-4">
             <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00e87a]" />
-                <span className="font-display font-bold text-[15px] text-white tracking-wide">SAK</span>
-              </div>
-              <div className="font-display text-[9px] text-[#8888aa] tracking-[0.18em] ml-3.5">
+              <img src="/final_logo.png" alt="SAK" className="h-8 w-auto mb-2" />
+              <div className="font-display text-[9px] text-[#8888aa] tracking-[0.18em]">
                 {footer.brand.tagline}
               </div>
             </div>

@@ -1,0 +1,11 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Kill Gate: octagonal frame + kill-switch node -->
+  <path d="M14 4 L50 4 L60 14 L60 50 L50 60 L14 60 L4 50 L4 14 Z"
+        stroke="#00e87a" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- Left dash -->
+  <line x1="10" y1="32" x2="22" y2="32" stroke="#00e87a" stroke-width="3" stroke-linecap="round"/>
+  <!-- Center node -->
+  <circle cx="32" cy="32" r="5" fill="#00e87a"/>
+  <!-- Right dash -->
+  <line x1="42" y1="32" x2="54" y2="32" stroke="#00e87a" stroke-width="3" stroke-linecap="round"/>
+</svg>

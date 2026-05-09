@@ -81,7 +81,7 @@ export function WaitlistSection() {
   };
 
   return (
-    <section className="py-24 text-center border-t border-white/5 bg-[#000000]">
+    <section id="waitlist-form" className="py-24 text-center border-t border-white/5 bg-[#000000]">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -167,7 +167,7 @@ export function WaitlistSection() {
         </form>
 
         <p className="text-white/20 text-xs font-mono text-center mt-4">
-          No spam. Unsubscribe anytime. We email when the elizaOS plugin ships.
+          No spam. Unsubscribe anytime. We will reach out when we are ready!
         </p>
       </motion.div>
     </section>

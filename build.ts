@@ -1,6 +1,6 @@
 #!/usr/bin/env bun
 import plugin from "bun-plugin-tailwind";
-import { existsSync } from "fs";
+import { existsSync, cpSync } from "fs";
 import { rm, writeFile } from "fs/promises";
 import path from "path";
 
@@ -146,6 +146,15 @@ const outputTable = result.outputs.map(output => ({
 
 console.table(outputTable);
 const buildTime = (end - start).toFixed(2);
+
+/* Copy static assets to dist */
+const assetDir = path.join(process.cwd(), "dev-asset");
+if (existsSync(assetDir)) {
+  for (const file of ["balaji.png", "sai_shreyas.png", "tejas.png", "final_logo.png"]) {
+    const src = path.join(assetDir, file);
+    if (existsSync(src)) cpSync(src, path.join(outdir, file));
+  }
+}
 
 await writeFile(path.join(outdir, "_redirects"), "/* /index.html 200\n");
 

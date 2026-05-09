@@ -71,11 +71,11 @@ export function DemoSection() {
             href="#waitlist-form"
             className="flex items-center gap-2 h-12 px-7 bg-[#00e87a] text-black text-[15px] font-bold rounded-lg hover:bg-[#00ff87] transition-colors duration-200"
           >
-            Launch Live Demo
+            Request for Demo
             <ArrowRight className="w-4 h-4" />
           </a>
           <p className="text-[#8888aa] text-[12px]">
-            Enter your NVIDIA API key to spawn a real LLM agent.
+            Get a personalized walkthrough of SAK Guardian.
           </p>
         </motion.div>
       </div>
