@@ -1,8 +1,16 @@
 import { serve } from "bun";
 import index from "./index.html";
+import hero3d from "./hero-3d.html";
+
+const ASSETS = ["balaji.png", "sai_shreyas.png", "tejas.png", "final_logo.png", "final_logo_full_name.png"];
 
 const server = serve({
   routes: {
+    "/hero-3d": hero3d,
+
+    // Static assets
+    ...Object.fromEntries(ASSETS.map(f => [`/${f}`, new Response(Bun.file(`dev-asset/${f}`))])),
+
     // Serve index.html for all unmatched routes.
     "/*": index,
 

@@ -5,7 +5,7 @@ import content from "../../content.json";
 const PHOTOS = [
   "balaji.png",
   "sai_shreyas.png",
-  "tejas.png"
+  "tejas.jpg"
 ];
 
 const fadeUp = (delay = 0) => ({

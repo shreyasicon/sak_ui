@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const MILESTONES = [
-  { q: "Q2 2026", title: "Guardian Live",     desc: "Beta mainnet, design partners",                    done: true  },
-  { q: "Q3 2026", title: "Public SDK",         desc: "elizaOS plugin, TypeScript bindings",              done: false },
-  { q: "Q4 2026", title: "Enterprise Tier",    desc: "VPC deployment, SLA, custom rules",                done: false },
-  { q: "Q1 2027", title: "Full Kernel",        desc: "Reflex Engine + ZK State production",              done: false },
+  { q: "Q2 2026", title: "Guardian Live", desc: "Beta mainnet, design partners", done: true },
+  { q: "Q3 2026", title: "Public SDK", desc: "ElizaOS plugin, TypeScript bindings", done: false },
+  { q: "Q4 2026", title: "Enterprise Tier", desc: "VPC deployment, SLA, custom rules", done: false },
+  { q: "Q1 2027", title: "Full Kernel", desc: "Reflex Engine + ZK State production", done: false },
 ];
 
 export function RoadmapSection() {
@@ -42,9 +42,8 @@ export function RoadmapSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {MILESTONES.map((item) => (
             <div key={item.q} className="pt-8">
-              <div className={`w-6 h-6 rounded-full border-2 mb-4 -mt-11 ${
-                item.done ? "bg-[#00e87a] border-[#00e87a]" : "bg-[#060a08] border-white/20"
-              }`}/>
+              <div className={`w-6 h-6 rounded-full border-2 mb-4 -mt-11 ${item.done ? "bg-[#00e87a] border-[#00e87a]" : "bg-[#060a08] border-white/20"
+                }`} />
               <div className="text-xs font-mono text-white/30 mb-2">{item.q}</div>
               <div className="font-semibold text-white mb-1">{item.title}</div>
               <div className="text-sm text-white/40">{item.desc}</div>

@@ -2,23 +2,23 @@ import { motion } from "framer-motion";
 import { Brain, Hand, Shield } from "lucide-react";
 
 const fadeUp = (delay = 0) => ({
-  initial:    { opacity: 0, y: 24 },
-  whileInView:{ opacity: 1, y: 0  },
-  viewport:   { once: true },
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
   transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1], delay },
 });
 
 const NODES = [
-  { label: "LLM",                  dim: true  },
-  { label: "elizaOS / Agent Kit",  dim: true  },
-  { label: "SAK",                  dim: false, star: true },
-  { label: "Solana",               dim: true  },
+  { label: "LLM", dim: true },
+  { label: "ElizaOS / Agent Kit", dim: true },
+  { label: "SAK", dim: false, star: true },
+  { label: "Solana", dim: true },
 ];
 
 const COLUMNS = [
-  { icon: Brain, title: "elizaOS is the brain.",       body: "The LLM decides what to do. It generates intent and asks the agent to act." },
-  { icon: Hand,  title: "Solana Agent Kit is the hands.", body: "It executes. Builds and submits transactions to the network on the agent's behalf." },
-  { icon: Shield,title: "SAK is the nervous system.",   body: "It validates. Every action passes through before it reaches the chain." },
+  { icon: Brain, title: "ElizaOS is the brain.", body: "The LLM decides what to do. It generates intent and asks the agent to act." },
+  { icon: Hand, title: "Solana Agent Kit is the hands.", body: "It executes. Builds and submits transactions to the network on the agent's behalf." },
+  { icon: Shield, title: "SAK is the nervous system.", body: "It validates. Every action passes through before it reaches the chain." },
 ];
 
 export function StackSection() {
@@ -68,12 +68,12 @@ export function StackSection() {
               {i < NODES.length - 1 && (
                 <div className="flex items-center gap-0 mx-1">
                   <div className="flex gap-0.5">
-                    {[0,1,2,3].map((d) => (
+                    {[0, 1, 2, 3].map((d) => (
                       <span key={d} className="w-1 h-px bg-white/20" />
                     ))}
                   </div>
                   <svg width="8" height="8" viewBox="0 0 8 8" className="text-white/25 ml-0.5">
-                    <path d="M0 4h7M4 1l3 3-3 3" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M0 4h7M4 1l3 3-3 3" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
               )}

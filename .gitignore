@@ -37,3 +37,6 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 .github/*
 *.md    
 dist/*
+
+# wrangler (contains KV ids and secrets)
+/wrangler.toml

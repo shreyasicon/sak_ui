@@ -46,7 +46,7 @@ export function PillarsSection() {
             </p>
             <div className="flex gap-6 mt-6">
               {[
-                { v: "20/20", l: "Tests passing" },
+                { v: "20/20", l: "Attack patterns" },
                 { v: "7", l: "Active rules" },
                 { v: "$0", l: "Cost per rejection" },
               ].map(s => (

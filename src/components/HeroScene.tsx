@@ -141,6 +141,8 @@ export function GenerativeArtScene() {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
       if (currentMount.contains(renderer.domElement)) currentMount.removeChild(renderer.domElement);
+      geometry.dispose();
+      material.dispose();
       renderer.dispose();
     };
   }, []);
@@ -152,37 +154,47 @@ export default function HeroScene() {
   return (
     <section className="relative w-full h-screen bg-[#080810] text-white overflow-hidden">
       <GenerativeArtScene />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#080810] via-[#080810]/70 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#080810] via-[#080810]/60 to-transparent z-10" />
 
       <div className="relative z-20 w-full h-full max-w-7xl mx-auto px-6 flex items-center">
-        {/* Left: text content (55%) */}
+
+        {/* ── Text content ── */}
         <div className="w-full max-w-3xl">
-          <div className="mb-4">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00e87a]/20 bg-[#00e87a]/8 text-[#00e87a] text-[10px] tracking-[0.12em] font-display">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00e87a]" />
-              COLOSSEUM FRONTIER 2026
+
+
+          <h1
+            className="leading-[1.08] mb-6"
+            style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, letterSpacing: "-0.03em" }}
+          >
+            <span className="block text-4xl sm:text-5xl md:text-6xl text-white">
+              Every AI Agent
             </span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight font-display mb-5">
-            Every AI Agent<br />
-            Is One Transaction Away
+            <span className="block text-4xl sm:text-5xl md:text-6xl text-white">
+              Is One Transaction Away
+            </span>
+            <span className="block text-[1.7rem] sm:text-[2.55rem] md:text-[3.1rem] text-white/60 mt-1">
+              From an Empty Wallet.
+            </span>
           </h1>
+
           <p className="text-[#8888aa] text-base sm:text-lg leading-relaxed max-w-md mb-8">
             SAK Guardian intercepts before the chain does.
           </p>
-          <div className="flex gap-4">
+
+          <div className="flex gap-4 flex-wrap">
             <a href="#waitlist-form" className="px-6 py-3 bg-[#00e87a] text-[#080810] font-semibold rounded-lg text-sm hover:opacity-90 transition-opacity">
-              Request for Demo →
+              Join Waitlist →
             </a>
             <a href="/docs" className="px-6 py-3 border border-white/20 text-white font-semibold rounded-lg text-sm hover:border-white/40 transition-colors">
               Read the Docs
             </a>
           </div>
+
           <div className="grid grid-cols-3 border-t border-white/5 max-w-xl w-full px-0 py-5 mt-10">
             {[
               { value: "20/20", label: "Evil patterns blocked" },
-              { value: "43ms",  label: "Average block time" },
-              { value: "$0",    label: "On-chain cost per rejection" },
+              { value: "43ms", label: "Average block time" },
+              { value: "$0", label: "On-chain cost per rejection" },
             ].map((s, i) => (
               <div key={s.label} className={`text-center ${i > 0 ? "border-l border-white/5 pl-4" : "pr-4"}`}>
                 <div className="text-xl sm:text-2xl font-bold text-white font-mono">{s.value}</div>
@@ -191,6 +203,8 @@ export default function HeroScene() {
             ))}
           </div>
         </div>
+
+
 
       </div>
     </section>

@@ -158,98 +158,99 @@
         "amount": "$200,000",
         "amount_label": "drained in one transaction",
         "severity": "critical",
-        "image": "/grok.png",
+        "image": "/news/grok.png",
         "url": "https://oecd.ai/en/incidents/2026-05-04-4a73",
         "sak_fix": "drain_check + program_whitelist fires. Blocked in 43ms. $0 on-chain cost."
       },
       {
         "id": 2,
-        "publication": "The Hacker News",
+        "publication": "The Hacker News ",
         "date": "April 2026",
         "headline": "New Wave of DPRK Attacks Uses AI-Inserted npm Malware, Fake Firms, and RATs",
         "description": "Security researchers documented 26 malicious AI routers actively targeting crypto wallets. One drained $500,000 from a single wallet.",
         "amount_label": "from a single wallet",
         "severity": "critical",
-        "image": "/hacker_news.png",
+        "image": "/news/hacker_news.png",
         "url": "https://thehackernews.com/2026/04/new-wave-of-dprk-attacks-uses-ai.html",
         "sak_fix": "Guardian simulation catches the drain before signing. Rule: max_account_drain."
       },
       {
         "id": 3,
         "publication": "Trading View",
-        "date": "March 2025",
-        "headline": "Hacker breaks into AI crypto bot aixbt's dashboard to snatch 55 ETH",
-        "description": "An attacker breached the dashboard of an AI crypto bot and made two prompts to transfer 55.5 Ether, worth $106,200, from its wallet.",
+        "date": "March , 2025",
+        "headline": "Hacker breaks into AI crypto bot aixbt’s dashboard to snatch 55 ETH",
+        "description": "An attacker has breached the dashboard of an artificial intelligence crypto bot and made two prompts for it to transfer 55.5 Ether, worth $106,200, from its wallet, sparking concerns about the security of AI agents in crypto.",
         "amount": "$106,200",
         "amount_label": "drained in one transaction",
         "severity": "high",
-        "image": "/trading_view.png",
+        "image": "/news/trading_view.png",
         "url": "https://www.tradingview.com/news/cointelegraph:61f9396f2094b:0-hacker-breaks-into-ai-crypto-bot-aixbt-s-dashboard-to-snatch-55-eth/",
-        "sak_fix": "Guardian's program_whitelist blocks unlisted programs. drain_check prevents balance loss."
+        "sak_fix": "[which SAK rule catches this attack]"
       },
       {
         "id": 4,
         "publication": "CCN",
         "date": "November 2024",
-        "headline": "AI Duped Into Approving $50K Crypto Transfer by Clever User",
+        "headline": "AI Duped Into Approving $50K Crypto Transfer by Clever User—and It’s No Laughing Matter",
         "description": "A clever crypto user bagged $47,000 after convincing an AI agent to disobey its one instruction: do not send anyone money.",
         "amount": "$47,000",
         "amount_label": "drained in one transaction",
         "severity": "high",
-        "image": "/ai_duped.png",
+        "image": "/news/ai_duped.png",
         "url": "https://www.ccn.com/news/crypto/ai-duped-50k-crypto-transfer-user/",
-        "sak_fix": "max_slippage + drain_check catches unauthorized transfers regardless of how the instruction was generated."
+        "sak_fix": "[which SAK rule catches this attack]"
       },
       {
         "id": 5,
         "publication": "The Block",
-        "date": "March 2025",
-        "headline": "AI crypto bot AIXBT lost $100,000 worth of ETH after hacker gained unauthorized dashboard access",
-        "description": "AIXBT, an AI agent that provides market commentary, lost approximately $100,000 worth of ETH in an exploit.",
+        "date": "March , 2025",
+        "headline": "AI crypto bot AIXBT lost $100,000 worth of ETH after hacker gained unauthorized 'dashboard access'",
+        "description": "AIXBT, an AI agent that provides market commentary, lost approximately $100,000 worth of ETH in an exploit on Tuesday.",
         "amount": "$106,200",
         "amount_label": "drained in one transaction",
         "severity": "high",
-        "image": "/aixbt.png",
+        "image": "/news/aixbt.png",
         "url": "https://www.theblock.co/post/346911/ai-crypto-bot-aixbt-lost-eth-hack-unauthorized-dashboard-access",
-        "sak_fix": "Guardian evaluates every transaction before signing. dashboard access does not bypass simulation."
+        "sak_fix": "[which SAK rule catches this attack]"
       },
       {
         "id": 6,
         "publication": "OECD",
         "date": "June 2025",
         "headline": "AI-Generated Deepfake Video of Shakira Used in Cryptocurrency Scam in Colombia",
-        "description": "An OpenAI agent was tricked into sending 5.8 ETH, worth roughly $20,000, to a compromised wallet after a user exploited a loophole in its safety protocols.",
+        "description": "An OpenAI agent was tricked into sending 5.8 ETH, worth roughly $20,000 at the time, to a compromised wallet. The incident occurred after a user exploited a loophole in the agent's programming to bypass its safety protocols.",
         "amount": "~$20,000",
         "amount_label": "in a single transaction",
         "severity": "high",
-        "image": "/shakira.png",
+        "image": "/news/shakira.png",
         "url": "https://oecd.ai/en/incidents/2026-03-16-4dea",
-        "sak_fix": "drain_check fires on any transfer exceeding the lamport cap. Social engineering of the LLM doesn't bypass Guardian."
+        "sak_fix": "[which SAK rule catches this attack]"
       },
       {
         "id": 7,
         "publication": "CryptoRank",
-        "date": "February 2025",
-        "headline": "AI Trading Bot's Catastrophic Error: $250K Meme Coin Windfall Sent to Online Beggar",
-        "description": "An AI trading bot mistakenly sent 52.43 million Lobstar tokens worth ~$250,000 to an online beggar instead of the intended recipient.",
+        "date": "February, 2025",
+        "headline": "AI Trading Bot’s Catastrophic Error: $250K Meme Coin Windfall Accidentally Sent to Online Beggar",
+        "description": "An AI trading bot on the Solana blockchain mistakenly sent 52.43 million Lobstar (LOBS) tokens worth approximately $250,000 to an online beggar, instead of the intended 4 SOL. The recipient sold the tokens quickly but due to limited liquidity, only realized about $40,000. This incident highlights AI automation risks and the need for safeguards in crypto trading protocols.",
         "amount": "~$250,000",
         "amount_label": "in a single transaction",
         "severity": "high",
-        "image": "/cryptorank.png",
+        "image": "/news/crytorank.png",
         "url": "https://cryptorank.io/news/feed/4f3bc-ai-trading-bot-meme-coin-accident",
-        "sak_fix": "program_whitelist + drain_check catches unauthorized token transfers regardless of how the instruction was generated."
+        "sak_fix": "[which SAK rule catches this attack]"
       },
       {
         "id": 8,
         "publication": "Medium",
-        "date": "April 2025",
-        "headline": "Security of AI Agents in Web3: Architecture, Jailbreaks, Vulnerabilities of Modern LLMs",
-        "description": "Active growth in the popularity of LLM models and interest in their integration into Web3 applications reveals systemic security gaps.",
+        "date": "April, 2025",
+        "headline": "Security of AI Agents in Web3: Architecture, Jailbreaks, Vulnerabilities of Modern LLMs, and Competitive Hacking",
+        "description": "Active growth in the popularity of LLM (large language model) models and interest in their integration into Web3 applications, such as DAO and dApp bots or automatic traders.",
         "amount": "N/A",
+        "amount_label": "in a single transaction",
         "severity": "low",
-        "image": "/medium_article.png",
+        "image": "/news/medium_article.png",
         "url": "https://blog.positive.com/security-of-ai-agents-in-web3-dbcb371544f7",
-        "sak_fix": "SAK's three-pillar architecture (Guardian + Reflex + ZK State) addresses all identified vulnerability classes."
+        "sak_fix": "[which SAK rule catches this attack]"
       }
     ]
   },
@@ -361,7 +362,7 @@
     "sectionLabel": "THE STACK POSITION",
     "diagram": [
       "LLM",
-      "elizaOS / Agent Kit",
+      "ElizaOS / Agent Kit",
       "SAK ← HERE",
       "Solana"
     ],
@@ -414,7 +415,7 @@
       {
         "quarter": "Q3 2026",
         "title": "Public SDK",
-        "subtitle": "elizaOS Plugin, TypeScript Bindings",
+        "subtitle": "ElizaOS Plugin, TypeScript Bindings",
         "active": false
       },
       {
@@ -440,8 +441,7 @@
         "role": "Founder & CEO",
         "bio": "Ex-McKinsey & Co  · Ex-Tejas Networks · MSc AI, DCU · Uniswap Hook Incubator",
         "social": {
-          "linkedin": "https://www.linkedin.com/in/s-k-balaji/",
-          "twitter": "https://x.com/BalajiS20877995"
+          "linkedin": "https://www.linkedin.com/in/s-k-balaji/"
         }
       },
       {
@@ -450,8 +450,7 @@
         "role": "Co-Founder",
         "bio": "Ex-EY · MSc Cloud, NCI · Infrastructure & DevOps · Uniswap Hook Incubator",
         "social": {
-          "linkedin": "https://www.linkedin.com/in/sai-shreyas/",
-          "twitter": "#"
+          "linkedin": "https://www.linkedin.com/in/sai-shreyas/"
         }
       },
       {
@@ -460,8 +459,7 @@
         "role": "CTO",
         "bio": "Ex-AceMicromatic · MSc Data Analytics, DCU · GTM & Growth",
         "social": {
-          "linkedin": "https://www.linkedin.com/in/tejas-shiva-kumar-51940a24b/",
-          "twitter": "#"
+          "linkedin": "https://www.linkedin.com/in/tejas-shiva-kumar-51940a24b/"
         }
       }
     ],
@@ -471,9 +469,9 @@
     }
   },
   "waitlist": {
-    "headline": "Build AI Systems That",
+    "headline": "Ship AI Agents That",
     "headline_green": "Can't Be Used Against You.",
-    "sub": "Join the waitlist. Get early access to SAK Guardian and the elizaOS plugin.",
+    "sub": "Join the waitlist. Get early access to SAK Guardian",
     "cta": "Join Waitlist",
     "api_endpoint": "https://sak-waitlist.skbalajimbl1.workers.dev/api/waitlist",
     "count_endpoint": "https://sak-waitlist.skbalajimbl1.workers.dev/api/waitlist/count",

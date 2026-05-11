@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 import plugin from "bun-plugin-tailwind";
 import { existsSync, cpSync } from "fs";
-import { rm, writeFile } from "fs/promises";
+import { rm, writeFile, cp } from "fs/promises";
 import path from "path";
 
 if (process.argv.includes("--help") || process.argv.includes("-h")) {
@@ -91,7 +91,6 @@ function parseArgs(): Partial<Bun.BuildConfig> {
 
   return config;
 }
-
 const formatFileSize = (bytes: number): string => {
   const units = ["B", "KB", "MB", "GB"];
   let size = bytes;
@@ -150,10 +149,23 @@ const buildTime = (end - start).toFixed(2);
 /* Copy static assets to dist */
 const assetDir = path.join(process.cwd(), "dev-asset");
 if (existsSync(assetDir)) {
-  for (const file of ["balaji.png", "sai_shreyas.png", "tejas.png", "final_logo.png"]) {
+  for (const file of ["balaji.png", "sai_shreyas.png", "tejas.jpg", "final_logo.png", "final_logo_full_name.png"]) {
     const src = path.join(assetDir, file);
     if (existsSync(src)) cpSync(src, path.join(outdir, file));
   }
+}
+
+/* Copy news images to dist/news/ */
+const newsDir = path.join(process.cwd(), "news_asset");
+if (existsSync(newsDir)) {
+  cpSync(newsDir, path.join(outdir, "news"), { recursive: true });
+  console.log("✓ Copied news_asset/ → dist/news/");
+}
+
+/* Copy public/ to dist */
+if (existsSync("public")) {
+  cpSync("public", outdir, { recursive: true });
+  console.log("✓ Copied public/ → dist/");
 }
 
 await writeFile(path.join(outdir, "_redirects"), "/* /index.html 200\n");

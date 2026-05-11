@@ -20,11 +20,11 @@ export function CTASection() {
         className="max-w-2xl mx-auto px-6"
       >
         <h2 className="text-4xl font-bold mb-3 font-display">
-          Build AI Systems That<br/>
+          Build AI Systems That<br />
           <span className="text-[#00e87a]">Can't Be Used Against You.</span>
         </h2>
         <p className="text-white/40 mb-8 max-w-md mx-auto">
-          Join the waitlist. Get early access to SAK Guardian and the elizaOS plugin.
+          Join the waitlist. Get early access to SAK Guardian.
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">

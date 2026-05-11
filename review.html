@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAK UI — Code Review Report</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #080810; color: #e2f0e2; line-height: 1.6; }
+    .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+    header { border-bottom: 1px solid rgba(34,197,94,0.15); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+    h1 { font-family: 'Space Mono', monospace; font-size: 1.75rem; color: #4ade80; margin-bottom: 0.25rem; }
+    h2 { font-family: 'Space Mono', monospace; font-size: 1.25rem; color: #4ade80; margin-top: 2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(34,197,94,0.1); }
+    h3 { font-family: 'Space Mono', monospace; font-size: 1rem; color: #e2f0e2; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .subtitle { color: #8888aa; font-size: 0.9rem; }
+    .score-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .score-card { border: 1px solid rgba(34,197,94,0.15); border-radius: 12px; padding: 1rem; background: rgba(255,255,255,0.02); }
+    .score-card .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8888aa; }
+    .score-card .grade { font-family: 'Space Mono', monospace; font-size: 2rem; font-weight: 700; margin-top: 0.25rem; }
+    .grade-A { color: #4ade80; }
+    .grade-B { color: #60a5fa; }
+    .grade-C { color: #facc15; }
+    .grade-D { color: #fb923c; }
+    .grade-F { color: #f87171; }
+    .badge { display: inline-block; font-family: 'Space Mono', monospace; font-size: 0.65rem; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .badge-critical { background: rgba(248,113,113,0.15); color: #f87171; border: 1px solid rgba(248,113,113,0.3); }
+    .badge-high { background: rgba(251,146,60,0.15); color: #fb923c; border: 1px solid rgba(251,146,60,0.3); }
+    .badge-medium { background: rgba(250,204,21,0.1); color: #facc15; border: 1px solid rgba(250,204,21,0.25); }
+    .badge-low { background: rgba(96,165,250,0.1); color: #60a5fa; border: 1px solid rgba(96,165,250,0.2); }
+    .finding { border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1rem; margin-bottom: 0.75rem; background: rgba(255,255,255,0.015); }
+    .finding-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+    .finding-title { font-weight: 600; font-size: 0.95rem; }
+    .finding-file { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #8888aa; background: rgba(255,255,255,0.04); padding: 0.15rem 0.4rem; border-radius: 3px; }
+    .finding-desc { font-size: 0.88rem; color: #b0c4b0; margin-bottom: 0.5rem; }
+    .finding-fix { background: rgba(34,197,94,0.05); border-left: 2px solid rgba(34,197,94,0.3); padding: 0.6rem 0.8rem; border-radius: 0 6px 6px 0; font-family: 'Space Mono', monospace; font-size: 0.78rem; color: #c8e6c8; white-space: pre-wrap; margin-top: 0.4rem; }
+    .summary-clean { color: #4ade80; font-weight: 600; }
+    .summary-warn { color: #facc15; font-weight: 600; }
+    .summary-bad { color: #f87171; font-weight: 600; }
+    hr { border: none; border-top: 1px solid rgba(34,197,94,0.08); margin: 1.5rem 0; }
+    code { font-family: 'Space Mono', monospace; font-size: 0.82em; background: rgba(255,255,255,0.04); padding: 0.1em 0.3em; border-radius: 3px; }
+    ul { padding-left: 1.2rem; color: #b0c4b0; font-size: 0.9rem; }
+    li { margin-bottom: 0.3rem; }
+    .verdict-box { border: 2px solid rgba(250,204,21,0.3); border-radius: 12px; padding: 1rem 1.25rem; background: rgba(250,204,21,0.04); margin: 1rem 0; }
+    .verdict-box h3 { color: #facc15; margin-top: 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>SAK UI — Code Review Report</h1>
+      <div class="subtitle">Repository: sak_ui-1 &middot; Type: React + Bun + Tailwind Landing Page &middot; Date: May 11, 2026</div>
+    </header>
+
+    <h2>Overview</h2>
+    <p>This is a <strong>frontend-only</strong> project — a React landing page for <strong>SAK (Solana Agent Kernel)</strong>. The repo contains no Solana program code (no Rust/Anchor). The review covers the React/TypeScript frontend, the Cloudflare Workers backend, and the Bun build pipeline.</p>
+
+    <h2>Scores</h2>
+    <div class="score-row">
+      <div class="score-card"><div class="label">Security</div><div class="grade grade-B">B+</div></div>
+      <div class="score-card"><div class="label">Code Quality</div><div class="grade grade-C">C+</div></div>
+      <div class="score-card"><div class="label">Production Readiness</div><div class="grade grade-C">C</div></div>
+      <div class="score-card"><div class="label">Maintainability</div><div class="grade grade-D">D+</div></div>
+    </div>
+
+    <div class="verdict-box">
+      <h3>Before Making Public: Fix These 5</h3>
+      <ul>
+        <li><strong>P0</strong> — <code>wrangler.toml</code> NOT in <code>.gitignore</code> (contains KV id + ADMIN_SECRET)</li>
+        <li><strong>P0</strong> — <code>WaitlistSection.tsx</code> useEffect cleanup never fires (calls <code>setState</code> after unmount)</li>
+        <li><strong>P1</strong> — <code>waitlist.js</code> KV counter race condition loses signups under concurrent load</li>
+        <li><strong>P1</strong> — <code>HeroScene.tsx</code> Three.js GPU memory leak (geometry/material never disposed)</li>
+        <li><strong>P2</strong> — <code>DocsPage.tsx</code> 638-line monolith with 15+ <code>any</code> types — entire type system bypassed</li>
+      </ul>
+    </div>
+
+    <h2>Security Findings</h2>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-critical">P0</span>
+        <span class="finding-title">wrangler.toml not gitignored</span>
+        <span class="finding-file">wrangler.toml</span>
+      </div>
+      <div class="finding-desc"><code>wrangler.toml</code> contains a hardcoded KV namespace ID (<code>1be5c56c6a374a0fa10c793dc0fdd648</code>) and an <code>ADMIN_SECRET</code> field. The file is <strong>not listed in <code>.gitignore</code></strong>. If real credentials are inserted and committed, Cloudflare infrastructure details leak to the public repo.</div>
+      <div class="finding-fix">Add to .gitignore:<br># wrangler config<br>/wrangler.toml<br><br>And keep wrangler.toml.example in the repo instead.</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-high">P1</span>
+        <span class="finding-title">KV counter race condition</span>
+        <span class="finding-file">src/workers/waitlist.js:88-90</span>
+      </div>
+      <div class="finding-desc">Cloudflare Workers KV is eventually consistent. Two concurrent signups can read the same <code>count</code>, both increment to N+1, and both write N+1 — losing one signup. KV does not support atomic increments.</div>
+      <div class="finding-fix">Use Durable Objects for atomic counters, or use a SQLite-backed D1 binding with <code>INSERT ... RETURNING</code>. For a quick fix: accept the race (minor) but document the limitation. A Durable Object is ~10 LoC.</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-high">P1</span>
+        <span class="finding-title">No rate limiting on waitlist API</span>
+        <span class="finding-file">src/workers/waitlist.js</span>
+      </div>
+      <div class="finding-desc">Any actor can POST thousands of emails per second to the waitlist endpoint. No rate limiting, no CAPTCHA, no proof-of-work.</div>
+      <div class="finding-fix">Add IP-based rate limiting using Cloudflare's built-in rate limiting API or check <code>request.cf?.country</code> and throttle per-IP. A simple approach: store timestamps per IP in KV with a TTL.</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-medium">P2</span>
+        <span class="finding-title">No AbortController on fetch calls</span>
+        <span class="finding-file">src/components/landing/WaitlistSection.tsx:22,56</span>
+      </div>
+      <div class="finding-desc">Both <code>useEffect</code> fetch (count) and submit handler fetch can fire callbacks on unmounted components. No <code>AbortController</code> is used, so <code>.then()</code> callbacks run even after the component unmounts.</div>
+      <div class="finding-fix">Add AbortController to the useEffect:<br>const abort = new AbortController();<br>fetch(url, { signal: abort.signal });<br>return () => abort.abort();</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-medium">P2</span>
+        <span class="finding-title">Weak email validation</span>
+        <span class="finding-file">src/workers/waitlist.js:54</span>
+      </div>
+      <div class="finding-desc">Validation <code>!email.includes('@') || !email.includes('.')</code> rejects valid emails like <code>user@localhost</code> and accepts invalid ones like <code>@.com</code>. No normalization (trim, lowercase).</div>
+      <div class="finding-fix">Use a simple regex: <code>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim().toLowerCase())</code></div>
+    </div>
+
+    <h2>Code Quality Findings</h2>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-high">P1</span>
+        <span class="finding-title">useEffect cleanup never fires</span>
+        <span class="finding-file">src/components/landing/WaitlistSection.tsx:31-32</span>
+      </div>
+      <div class="finding-desc">The <code>return () => controls.stop()</code> is inside the <code>.then()</code> callback, creating a new function that is thrown away. The effect itself returns <code>undefined</code>, so React never calls <code>controls.stop()</code> on unmount. The animation continues running, calling <code>setDisplayCount</code> on an unmounted component.</div>
+      <div class="finding-fix">```tsx
+useEffect(() => {
+  const abort = new AbortController();
+  fetch(wl.count_endpoint, { signal: abort.signal })
+    .then(r => r.json())
+    .then(data => {
+      setCount(data.count);
+      const controls = animate(wl.baseline_count, data.count, {
+        duration: 1,
+        ease: [0.16, 1, 0.3, 1],
+        onUpdate: (v) => setDisplayCount(Math.round(v)),
+      });
+      // Store controls for cleanup
+      (window as any).__animControls = controls;
+    })
+    .catch(() => { ... });
+  return () => {
+    abort.abort();
+    (window as any)?.__animControls?.stop();
+  };
+}, []);
+```</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-high">P1</span>
+        <span class="finding-title">Three.js GPU memory leak</span>
+        <span class="finding-file">src/components/HeroScene.tsx:139-145</span>
+      </div>
+      <div class="finding-desc">The effect cleanup calls <code>renderer.dispose()</code> but <strong>never calls</strong> <code>geometry.dispose()</code> or <code>material.dispose()</code>. Every mount/unmount of this component leaks GPU buffers (IcosahedronGeometry with subdivision 64 = ~60K triangles of vertex data plus shader program).</div>
+      <div class="finding-fix">```tsx
+return () => {
+  cancelAnimationFrame(frameId);
+  window.removeEventListener("resize", handleResize);
+  window.removeEventListener("mousemove", handleMouseMove);
+  geometry.dispose();
+  material.dispose();
+  renderer.dispose();
+  if (currentMount.contains(renderer.domElement))
+    currentMount.removeChild(renderer.domElement);
+};
+```</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-high">P2</span>
+        <span class="finding-title">DocsPage: 638-line monolith with type unsafety</span>
+        <span class="finding-file">src/components/docs/DocsPage.tsx</span>
+      </div>
+      <div class="finding-desc">This file is a single component with 16 sub-components, <strong>all</strong> <code>docData.*</code> accesses are typed as <code>any</code> (cast via <code>as unknown as JsonObject & {...}</code>). 15+ <code>any</code> type annotations throughout. If <code>sak-docs.json</code> changes structure, the build succeeds and runtime errors appear. The file imports <code>../../index.css</code> as a side-effect.</div>
+      <div class="finding-fix">1. Split into separate files per page type (e.g., <code>docs/pages/OverviewPage.tsx</code>).<br>2. Generate TypeScript types from the JSON schema or use <code>zod</code> for runtime validation.<br>3. Remove side-effect CSS import — use the global stylesheet instead.</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-medium">P2</span>
+        <span class="finding-title">Footer newsletter collects email but never sends</span>
+        <span class="finding-file">src/components/landing/Footer.tsx:93</span>
+      </div>
+      <div class="finding-desc">The newsletter form has <code>onSubmit={(e) => e.preventDefault()}</code> — it collects an email into state (<code>setEmail</code>) but never sends it anywhere. The email is set but nothing consumes it. Dead feature that creates a false sense of signup.</div>
+      <div class="finding-fix">Either wire it to the same waitlist API endpoint used by <code>WaitlistSection</code>, or remove the form and replace with a static "Coming Soon" message.</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-medium">P2</span>
+        <span class="finding-title">Team photos decoupled from data</span>
+        <span class="finding-file">src/components/landing/TeamSection.tsx:55</span>
+      </div>
+      <div class="finding-desc">The <code>PHOTOS</code> array is hardcoded separately from <code>team.members</code> in <code>content.json</code>. Reordering, adding, or removing a member in content.json without updating <code>PHOTOS</code> shows the wrong photos.</div>
+      <div class="finding-fix">Add a <code>photo</code> field to each team member in <code>content.json</code>, or use initials-based avatar fallback consistently.</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-medium">P2</span>
+        <span class="finding-title">Social icon fallback incorrectly assumes Twitter</span>
+        <span class="finding-file">src/components/landing/TeamSection.tsx:89</span>
+      </div>
+      <div class="finding-desc">The icon map <code>platform === "linkedin" ? &lt;Linkedin /&gt; : &lt;Twitter /&gt;</code> renders a Twitter icon for any non-LinkedIn platform (GitHub, website, Discord, etc.).</div>
+      <div class="finding-fix">```tsx
+const ICONS: Record<string, ReactNode> = {
+  linkedin: <Linkedin />,
+  twitter: <Twitter />,
+  github: <Github />,
+};
+const icon = ICONS[platform] ?? <ExternalLink />;
+```</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-low">P3</span>
+        <span class="finding-title">Unused import in Footer</span>
+        <span class="finding-file">src/components/landing/Footer.tsx:2</span>
+      </div>
+      <div class="finding-desc"><code>Linkedin</code> is imported from <code>lucide-react</code> but never used — the <code>SOCIAL</code> array doesn't include LinkedIn.</div>
+      <div class="finding-fix">Remove <code>Linkedin</code> from the import statement.</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-low">P3</span>
+        <span class="finding-title">Unused import in build.ts</span>
+        <span class="finding-file">build.ts:4</span>
+      </div>
+      <div class="finding-desc">The async <code>cp</code> is imported from <code>fs/promises</code> but only the sync <code>cpSync</code> from <code>fs</code> is used.</div>
+      <div class="finding-fix">Remove the unused <code>cp</code> import.</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-low">P3</span>
+        <span class="finding-title">Large commented dead code block</span>
+        <span class="finding-file">src/components/landing/IncidentSection.tsx:125-143</span>
+      </div>
+      <div class="finding-desc">Approximately 19 lines of commented-out <code>urgency_block</code> JSX. Dead code should be removed, not commented.</div>
+      <div class="finding-fix">Delete the commented block entirely.</div>
+    </div>
+
+    <h2>Performance Findings</h2>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-medium">P2</span>
+        <span class="finding-title">940KB JS bundle includes Three.js + Framer Motion</span>
+        <span class="finding-file">dist/chunk-z1py3n1d.js</span>
+      </div>
+      <div class="finding-desc">The production JS bundle is 940KB. Three.js (<code>@react-three/fiber</code>, <code>@react-three/drei</code>, <code>three</code>) is bundled via <code>HeroScene.tsx</code> which renders an animated 3D icosahedron on the landing page. This adds significant weight for a decorative effect. Framer Motion is used across multiple sections.</div>
+      <div class="finding-fix">1. Lazy-load <code>HeroScene</code> with <code>React.lazy()</code> + <code>Suspense</code> so Three.js is only loaded after initial paint.<br>2. Consider replacing the Three.js hero with CSS/SVG animations if the 3D effect isn't critical brand IP.</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-low">P3</span>
+        <span class="finding-title">Mousemove handler runs expensive math per event</span>
+        <span class="finding-file">src/components/HeroScene.tsx:124-135</span>
+      </div>
+      <div class="finding-desc">Every mousemove event creates new <code>THREE.Vector3</code>, runs <code>unproject</code>, vector math, and uniform updates. Not throttled.</div>
+      <div class="finding-fix">Throttle the handler: <code>const throttled = (e: MouseEvent) => requestAnimationFrame(() => handleMouseMove(e));</code></div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-low">P3</span>
+        <span class="finding-title">Blur filter animation causes paint jank</span>
+        <span class="finding-file">src/components/docs/DocsPage.tsx:202-204</span>
+      </div>
+      <div class="finding-desc">Animating CSS <code>filter: blur()</code> triggers paint on every frame. On mid-range devices this causes visible jank during page transitions.</div>
+      <div class="finding-fix">Remove <code>filter</code> from the framer-motion <code>initial</code>/<code>animate</code> props. Stick to <code>opacity</code> and <code>y</code> which are composited on the GPU.</div>
+    </div>
+
+    <h2>Accessibility Findings</h2>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-medium">P2</span>
+        <span class="finding-title">No keyboard focus management in mobile menu</span>
+        <span class="finding-file">src/components/landing/Navbar.tsx</span>
+      </div>
+      <div class="finding-desc">When the mobile hamburger menu opens, keyboard focus can tab outside the menu (to background interactive elements). No <code>aria-expanded</code> or <code>aria-controls</code> on the hamburger button.</div>
+      <div class="finding-fix">Add focus trapping: on mount, focus the first menu item; on menu close, return focus to the hamburger. Add <code>aria-expanded</code> and <code>aria-controls</code> to the toggle button.</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-low">P3</span>
+        <span class="finding-title">Nav logo lacks width/height attributes</span>
+        <span class="finding-file">src/components/landing/Navbar.tsx</span>
+      </div>
+      <div class="finding-desc">The brand logo <code>&lt;img src="/final_logo_full_name.png" /&gt;</code> has no <code>width</code>/<code>height</code> attributes, causing layout shift during load.</div>
+      <div class="finding-fix">Add explicit dimensions: <code>width={...} height={...}</code> matching the intrinsic aspect ratio.</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-low">P3</span>
+        <span class="finding-title">Incident cards lack focus indicators</span>
+        <span class="finding-file">src/components/landing/IncidentSection.tsx:114</span>
+      </div>
+      <div class="finding-desc">Incident cards are wrapped in <code>&lt;a&gt;</code> tags but have no visible focus ring for keyboard navigation.</div>
+      <div class="finding-fix">Add Tailwind <code>focus-visible:ring-2 focus-visible:ring-green-400</code> to the card links.</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-low">P3</span>
+        <span class="finding-title">Three.js canvas missing accessible label</span>
+        <span class="finding-file">src/components/HeroScene.tsx</span>
+      </div>
+      <div class="finding-desc">The WebGL canvas rendered by Three.js has no <code>role="img"</code> or <code>aria-label</code>, making it invisible to screen readers.</div>
+      <div class="finding-fix">Set <code>aria-label</code> on the canvas element to describe the generative art.</div>
+    </div>
+
+    <h2>Architecture &amp; Maintainability</h2>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-medium">P2</span>
+        <span class="finding-title">Hardcoded external URLs in content.json</span>
+        <span class="finding-file">src/content.json:476-477</span>
+      </div>
+      <div class="finding-desc">The waitlist API endpoint and count endpoint are hardcoded URLs. These differ between dev/staging/production but there's no environment-based configuration.</div>
+      <div class="finding-fix">Use environment variables or a config that can vary per-deployment. Or serve from relative paths through the Bun server to avoid CORS entirely.</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-medium">P2</span>
+        <span class="finding-title">Hardcoded KV BASELINE in worker</span>
+        <span class="finding-file">src/workers/waitlist.js:7</span>
+      </div>
+      <div class="finding-desc"><code>const BASELINE = 79</code> requires a code deployment to change. Should be stored in KV so non-technical team members can update it.</div>
+      <div class="finding-fix">Store BASELINE in KV: <code>const BASELINE = parseInt(await env.SAK_WAITLIST.get('baseline') ?? '0');</code></div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-header">
+        <span class="badge badge-low">P3</span>
+        <span class="finding-title">Route-based URL construction uses <code>#</code> anchors</span>
+        <span class="finding-file">src/content.json:13-14</span>
+      </div>
+      <div class="finding-desc">Routes like <code>"login": "#login"</code> and <code>"launchPlatform": "#waitlist-form"</code> are anchor-based SPA links. The docs page at <code>/docs</code> also uses hash routing internally. This creates duplication between the Bun server's catch-all route and the client-side routing.</div>
+      <div class="finding-fix">Consider using a proper client-side router (react-router) if the app grows beyond a single landing page. For now, document the routing convention clearly.</div>
+    </div>
+
+    <hr />
+
+    <h2>Verdict: C+ — Ship It After the P0/P1 Fixes</h2>
+    <p>This is a well-designed landing page with strong visual identity. The code quality is acceptable for an MVP/pre-launch phase. The critical issues are concentrated in a few files and are straightforward to fix. None of the issues are architectural showstoppers.</p>
+
+    <h3>Before making the repo public, fix in order:</h3>
+    <ol style="color:#b0c4b0; font-size:0.9rem;">
+      <li><strong>P0</strong> — Add <code>/wrangler.toml</code> to <code>.gitignore</code> (infra secret leak)</li>
+      <li><strong>P0</strong> — Fix the <code>useEffect</code> cleanup in <code>WaitlistSection.tsx</code> (state-update-on-unmounted bug)</li>
+      <li><strong>P1</strong> — Add <code>geometry.dispose()</code> / <code>material.dispose()</code> in <code>HeroScene.tsx</code> cleanup (GPU leak)</li>
+      <li><strong>P1</strong> — Add rate limiting or document the race condition in <code>waitlist.js</code></li>
+      <li><strong>P1</strong> — Either wire Footer newsletter to real API endpoint or remove the form</li>
+      <li><strong>P2</strong> — Add <code>AbortController</code> to waitlist fetch calls</li>
+      <li><strong>P2</strong> — Strengthen email validation in the worker</li>
+    </ol>
+
+    <h3>Post-public (next sprint):</h3>
+    <ul>
+      <li>Refactor <code>DocsPage.tsx</code> into per-type files with proper types</li>
+      <li>Lazy-load <code>HeroScene</code> to reduce bundle size</li>
+      <li>Fix team photo / data coupling</li>
+      <li>Add SEO meta tags to DocsPage</li>
+    </ul>
+
+    <h3>Ready for Phase 3 (Launch)?</h3>
+    <p><span class="summary-warn">Conditional yes</span> — after the 5 P0/P1 fixes above are applied. Then proceed to:</p>
+    <ul>
+      <li><code>deploy-to-mainnet</code> — production deployment checklist</li>
+      <li><code>create-pitch-deck</code> — structured pitch deck</li>
+      <li><code>submit-to-hackathon</code> — hackathon submission builder</li>
+    </ul>
+  </div>
+</body>
+</html>

@@ -38,7 +38,7 @@ export function GuardianDashboard({ compact = false }: { compact?: boolean }) {
       {/* ── stats row ── */}
       <div className="grid grid-cols-4 border-b border-white/[0.05]">
         {[
-          { val: "20/20", label: "BLOCKED" },
+          { val: "20/20", label: "PATTERNS" },
           { val: "43ms",  label: "AVG RT"  },
           { val: "$0.00", label: "COST"    },
           { val: "204",   label: "SESSIONS"},

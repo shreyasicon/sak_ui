@@ -2,17 +2,32 @@
 // Deploy to Cloudflare Workers
 // Bind KV namespace: SAK_WAITLIST
 
-const BASELINE = 79; // from your pitch deck
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const CORS_HEADERS = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
 };
 
+async function getBaseline(env) {
+    const stored = await env.SAK_WAITLIST.get('baseline', { cacheTtl: 0 });
+    return stored ? parseInt(stored, 10) : 79;
+}
+
+async function getRealCount(env) {
+    const list = await env.SAK_WAITLIST.list({ prefix: 'email:' });
+    return list.keys.length;
+}
+
+async function getTotal(env) {
+    const baseline = await getBaseline(env);
+    const real = await getRealCount(env);
+    return baseline + real;
+}
+
 export default {
     async fetch(request, env) {
 
-        // Handle CORS preflight
         if (request.method === 'OPTIONS') {
             return new Response(null, { headers: CORS_HEADERS });
         }
@@ -20,21 +35,18 @@ export default {
         const url = new URL(request.url);
 
         // GET /api/waitlist/count
-        // Returns current count for the landing page
         if (request.method === 'GET' &&
             url.pathname === '/api/waitlist/count') {
 
-            const count = await env.SAK_WAITLIST.get('count');
-            const total = BASELINE + parseInt(count || '0');
+            const total = await getTotal(env);
 
             return Response.json(
-                { count: total, real: parseInt(count || '0') },
+                { count: total },
                 { headers: CORS_HEADERS }
             );
         }
 
         // POST /api/waitlist
-        // Saves email, returns new count
         if (request.method === 'POST' &&
             url.pathname === '/api/waitlist') {
 
@@ -50,19 +62,16 @@ export default {
 
             const email = body.email?.toLowerCase().trim();
 
-            // Validate email
-            if (!email || !email.includes('@') || !email.includes('.')) {
+            if (!email || !EMAIL_RE.test(email)) {
                 return Response.json(
                     { error: 'Valid email required' },
                     { status: 400, headers: CORS_HEADERS }
                 );
             }
 
-            // Check duplicate
-            const existing = await env.SAK_WAITLIST.get(`email:${email}`);
+            const existing = await env.SAK_WAITLIST.get(`email:${email}`, { cacheTtl: 0 });
             if (existing) {
-                const count = await env.SAK_WAITLIST.get('count');
-                const total = BASELINE + parseInt(count || '0');
+                const total = await getTotal(env);
                 return Response.json(
                     {
                         success: true,
@@ -74,7 +83,6 @@ export default {
                 );
             }
 
-            // Save email with timestamp
             await env.SAK_WAITLIST.put(
                 `email:${email}`,
                 JSON.stringify({
@@ -84,12 +92,7 @@ export default {
                 })
             );
 
-            // Increment counter
-            const current = await env.SAK_WAITLIST.get('count');
-            const newCount = parseInt(current || '0') + 1;
-            await env.SAK_WAITLIST.put('count', newCount.toString());
-
-            const total = BASELINE + newCount;
+            const total = await getTotal(env);
 
             return Response.json(
                 {
@@ -102,11 +105,9 @@ export default {
         }
 
         // GET /api/waitlist/list
-        // Returns all emails (protect this in production)
         if (request.method === 'GET' &&
             url.pathname === '/api/waitlist/list') {
 
-            // Basic auth check
             const authHeader = request.headers.get('Authorization');
             const expected = `Bearer ${env.ADMIN_SECRET}`;
 
@@ -126,7 +127,7 @@ export default {
             );
 
             return Response.json(
-                { emails, total: emails.length + BASELINE },
+                { emails, total: emails.length + await getBaseline(env) },
                 { headers: CORS_HEADERS }
             );
         }

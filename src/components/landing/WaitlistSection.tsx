@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, animate } from "framer-motion";
 import content from "../../content.json";
 
@@ -18,23 +18,32 @@ export function WaitlistSection() {
   const [count, setCount] = useState(wl.baseline_count);
   const [displayCount, setDisplayCount] = useState(wl.baseline_count);
   const [message, setMessage] = useState("");
+  const animRef = useRef<{ stop: () => void } | null>(null);
 
   useEffect(() => {
-    fetch(wl.count_endpoint)
+    const abort = new AbortController();
+
+    fetch(wl.count_endpoint, { signal: abort.signal })
       .then(r => r.json())
       .then(data => {
+        if (abort.signal.aborted) return;
         setCount(data.count);
-        const controls = animate(wl.baseline_count, data.count, {
+        animRef.current = animate(wl.baseline_count, data.count, {
           duration: 1,
           ease: [0.16, 1, 0.3, 1],
           onUpdate: (v) => setDisplayCount(Math.round(v)),
         });
-        return () => controls.stop();
       })
       .catch(() => {
+        if (abort.signal.aborted) return;
         setCount(wl.baseline_count);
         setDisplayCount(wl.baseline_count);
       });
+
+    return () => {
+      abort.abort();
+      animRef.current?.stop();
+    };
   }, []);
 
   const animateCount = (from: number, to: number) => {
@@ -70,8 +79,8 @@ export function WaitlistSection() {
       if (data.success) {
         setStatus("success");
         setMessage(data.message);
+        animateCount(count, data.count);
         setCount(data.count);
-        animateCount(displayCount, data.count);
       } else {
         setStatus("error");
       }
@@ -104,7 +113,7 @@ export function WaitlistSection() {
               {displayCount}
             </span>
             <span className="font-mono text-sm text-white/40 ml-2">
-              teams already waiting
+              already waiting
             </span>
           </div>
           <div className="flex items-center">
